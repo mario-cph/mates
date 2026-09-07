@@ -10,17 +10,17 @@
   --ink:#2b313a;--muted:#697383;--bg:#f6f8fb;--card:#fff;--line:#dfe5ee;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
 body{overflow:hidden}
-#app{height:100vh;display:grid;grid-template-rows:auto 1fr auto}
+#app{height:100%;min-height:0;display:grid;grid-template-rows:auto 1fr auto}
 header{display:flex;align-items:center;gap:12px;padding:10px 16px;background:#fff;border-bottom:1px solid var(--line)}
 header .brand{font-size:13px;font-weight:800;letter-spacing:.06em;color:var(--blue)}
 header .spacer{flex:1}
 header button, footer button,.btn{border:0;border-radius:10px;min-height:42px;padding:9px 14px;font-size:15px;font-weight:800;cursor:pointer}
 header button, footer button{background:#eef3fa;color:var(--blue)}
 button:focus-visible{outline:3px solid #9cc4ff;outline-offset:2px}
-main{position:relative;overflow:hidden}
-.slide{position:absolute;inset:0;display:none;padding:34px 48px 28px;overflow:auto}
+main{position:relative;overflow:hidden;min-height:0}
+.slide{position:absolute;inset:0;display:none;padding:34px 48px 24px;overflow:auto}
 .slide.active{display:block;animation:fade .22s ease}
 @keyframes fade{from{opacity:.35;transform:translateX(12px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.slide.active{animation:none}}
@@ -44,7 +44,7 @@ h3{font-size:22px;margin:0 0 12px}
 .session-num{font-size:110px;font-weight:900;color:#fff;background:var(--blue);border-radius:24px;text-align:center;padding:28px 10px}
 .badges{display:flex;flex-wrap:wrap;gap:10px}
 .badge{background:#eef3fa;color:var(--blue);border-radius:999px;padding:8px 12px;font-weight:800}
-footer{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#fff;border-top:1px solid var(--line)}
+footer{position:relative;display:flex;align-items:center;gap:10px;height:60px;padding:9px 14px;background:#fff;border-top:1px solid var(--line);z-index:20}
 footer .progress{flex:1;height:8px;border-radius:999px;background:#e8edf4;overflow:hidden}
 footer .progress span{display:block;height:100%;background:var(--blue);width:0}
 footer .count{min-width:85px;text-align:center;font-size:13px;color:var(--muted);font-weight:700}
@@ -71,54 +71,27 @@ footer .count{min-width:85px;text-align:center;font-size:13px;color:var(--muted)
 .stepbox{min-height:70px;display:flex;align-items:center;justify-content:center;background:#f8fafc;border:1px solid var(--line);border-radius:14px;font-size:25px;font-weight:800;margin:10px 0}
 @media(max-width:800px){.slide{padding:24px 20px}.grid2,.grid3{grid-template-columns:1fr}.session{grid-template-columns:1fr}.session-num{font-size:70px}.quiz-options{grid-template-columns:1fr}}
 
-/* ===== Mejoras de navegación y aula (estilo Tema 2 · 4.º B) ===== */
-.quick-menu-overlay{
-  position:fixed;inset:0;z-index:1000;background:rgba(28,38,52,.48);
-  display:none;align-items:center;justify-content:center;padding:22px
-}
+.quick-menu-overlay{position:fixed;inset:0;z-index:1000;background:rgba(28,38,52,.48);display:none;align-items:center;justify-content:center;padding:22px}
 .quick-menu-overlay.show{display:flex}
-.quick-menu-panel{
-  width:min(1120px,96vw);max-height:88vh;overflow:auto;background:#fff;
-  border:1px solid var(--line,#dfe5ee);border-radius:20px;
-  box-shadow:0 18px 55px rgba(0,0,0,.22);padding:22px
-}
+.quick-menu-panel{width:min(1120px,96vw);max-height:88vh;overflow:auto;background:#fff;border:1px solid var(--line,#dfe5ee);border-radius:20px;box-shadow:0 18px 55px rgba(0,0,0,.22);padding:22px}
 .quick-menu-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
 .quick-menu-head h2{font-size:28px!important;margin:0!important;color:var(--blue,var(--b,#255ba3))!important}
 .quick-menu-head p{margin:3px 0 0;font-size:14px!important;color:#697383}
 .quick-menu-head .spacer{flex:1}
 .quick-menu-close{background:#eef3fa!important;color:var(--blue,var(--b,#255ba3))!important}
 .quick-menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
-.quick-jump{
-  text-align:left!important;background:#f8fafc!important;color:#2b313a!important;
-  border:1px solid var(--line,#dfe5ee)!important;border-radius:12px!important;
-  padding:11px 12px!important;min-height:52px!important;font-size:14px!important
-}
+.quick-jump{text-align:left!important;background:#f8fafc!important;color:#2b313a!important;border:1px solid var(--line,#dfe5ee)!important;border-radius:12px!important;padding:11px 12px!important;min-height:52px!important;font-size:14px!important}
 .quick-jump:hover{border-color:var(--blue,var(--b,#255ba3))!important;background:#eef3fa!important}
 .quick-jump.current{box-shadow:inset 4px 0 0 var(--blue,var(--b,#255ba3));background:#eef3fa!important}
 .quick-jump .slide-no{display:block;font-size:11px;color:#697383;margin-bottom:3px}
-.stepbox,.step{
-  display:block!important;min-height:78px!important;
-  padding:10px 14px!important;text-align:left!important;
-  overflow:visible!important
-}
+.stepbox,.step{display:block!important;min-height:78px!important;padding:10px 14px!important;text-align:left!important;overflow:visible!important}
 .step-list{display:flex;flex-direction:column;gap:7px;width:100%}
-.step-line{
-  width:100%;padding:8px 12px;border-radius:10px;background:#fff;
-  border-left:4px solid var(--blue,var(--b,#255ba3));
-  font-size:clamp(17px,2vw,22px);line-height:1.22;font-weight:800;
-  animation:stepIn .2s ease
-}
+.step-line{width:100%;padding:8px 12px;border-radius:10px;background:#fff;border-left:4px solid var(--blue,var(--b,#255ba3));font-size:clamp(17px,2vw,22px);line-height:1.22;font-weight:800;animation:stepIn .2s ease}
 .step-line.final-step{border-left-color:var(--green,var(--g,#2f7d5b));background:#edf8f2}
 .step-placeholder{text-align:center;color:#697383;padding:12px}
 @keyframes stepIn{from{opacity:.2;transform:translateY(-5px)}to{opacity:1;transform:none}}
-@media(max-height:760px){
-  .slide{padding-top:22px!important;padding-bottom:18px!important}
-  .step-line{font-size:17px;padding:6px 10px}
-  .actions{margin-top:10px!important;margin-bottom:8px!important}
-}
+@media(max-height:760px){.slide{padding-top:22px!important;padding-bottom:18px!important}.step-line{font-size:17px;padding:6px 10px}.actions{margin-top:10px!important;margin-bottom:8px!important}}
 
-
-/* ===== Navegación rápida idéntica a la plantilla Tema 2 · 4.º B ===== */
 .nav-overlay{position:fixed;inset:0;background:rgba(43,49,58,.36);display:none;align-items:center;justify-content:center;z-index:1200;padding:24px}
 .nav-overlay.show{display:flex}
 .nav-panel{width:min(920px,96vw);max-height:82vh;overflow:auto;background:#fff;border:1px solid var(--line,#dfe5ee);border-radius:20px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.18)}
@@ -133,8 +106,6 @@ footer .count{min-width:85px;text-align:center;font-size:13px;color:var(--muted)
 .nav-close{float:right;background:#eef3fa!important;color:var(--blue,var(--b,#255ba3))!important}
 @media(max-width:700px){.nav-grid{grid-template-columns:1fr}}
 
-
-/* Esquema amarillo en “Ahora tú” — mismo formato que Tema 2 de 4.º B */
 .exercise-list,.ex{margin:24px 0}
 .theory-schema{margin-top:14px;background:#fff8e2;border:1px solid #f1d58a;border-left:6px solid var(--yellow, var(--y));border-radius:18px;padding:18px 20px}
 .theory-schema h3{color:#8a6510;margin:0 0 10px}
@@ -143,131 +114,10 @@ footer .count{min-width:85px;text-align:center;font-size:13px;color:var(--muted)
 .theory-schema .schema-item strong{display:block;color:#8a6510;margin-bottom:4px}
 @media(max-width:800px){.theory-schema .schema-grid{grid-template-columns:1fr}}
 
-
-
-/* ===== PIE DE NAVEGACIÓN VISIBLE ===== */
-#app{height:100vh!important;min-height:100vh!important}
-main{padding-bottom:62px!important}
-footer{
-  position:fixed!important;
-  left:0!important;
-  right:0!important;
-  bottom:0!important;
-  height:60px!important;
-  display:flex!important;
-  align-items:center!important;
-  gap:10px!important;
-  padding:9px 14px!important;
-  margin:0!important;
-  background:#fff!important;
-  border-top:1px solid var(--line,#dfe5ee)!important;
-  z-index:900!important;
-  visibility:visible!important;
-  opacity:1!important;
-}
-footer button{
-  display:inline-flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  min-width:125px!important;
-  min-height:42px!important;
-  padding:9px 14px!important;
-  border:0!important;
-  border-radius:10px!important;
-  background:#eef3fa!important;
-  color:var(--blue,var(--b,#255ba3))!important;
-  font-size:15px!important;
-  font-weight:800!important;
-  cursor:pointer!important;
-  visibility:visible!important;
-  opacity:1!important;
-}
-footer .progress{
-  flex:1!important;
-  height:8px!important;
-  border-radius:999px!important;
-  background:#e8edf4!important;
-  overflow:hidden!important;
-}
-footer .progress span{
-  display:block!important;
-  height:100%!important;
-  background:var(--blue,var(--b,#255ba3))!important;
-}
-footer .count{
-  min-width:85px!important;
-  text-align:center!important;
-  font-size:13px!important;
-  color:#697383!important;
-  font-weight:700!important;
-}
-.slide{padding-bottom:82px!important}
-@media(max-width:650px){
-  footer button{min-width:94px!important;font-size:13px!important;padding:8px 10px!important}
-  footer .count{min-width:60px!important}
-}
-
-
-/* ===== Corrección de títulos y diapositivas de ejercicios ===== */
-h1,h2{
-  line-height:1.08!important;
-  overflow-wrap:break-word!important;
-  word-break:normal!important;
-}
-h1{max-width:100%!important}
-h2{max-width:100%!important}
-.kicker,.k{
-  line-height:1.2!important;
-  margin-bottom:8px!important;
-}
-.session{
-  min-width:0!important;
-}
-.session > div:last-child{
-  min-width:0!important;
-}
-.session h2{
-  font-size:clamp(28px,3.4vw,44px)!important;
-  line-height:1.08!important;
-  margin-top:6px!important;
-  margin-bottom:14px!important;
-}
-.session p,.session .lead{
-  margin-top:0!important;
-}
-.theory-schema{
-  clear:both!important;
-  position:relative!important;
-}
-.theory-schema h3{
-  line-height:1.2!important;
-}
-.exercise-list,.ex{
-  line-height:1.05!important;
-}
-@media(max-width:900px){
-  .session{
-    grid-template-columns:150px minmax(0,1fr)!important;
-    gap:22px!important;
-  }
-  .session-num,.session>b{
-    font-size:82px!important;
-  }
-}
-@media(max-width:650px){
-  .session{
-    grid-template-columns:1fr!important;
-    align-content:start!important;
-  }
-  .session-num,.session>b{
-    font-size:58px!important;
-    padding:16px 10px!important;
-  }
-  .session h2{
-    font-size:clamp(27px,8vw,38px)!important;
-  }
-}
-
+h1,h2{line-height:1.08!important;overflow-wrap:break-word!important;word-break:normal!important}
+h1,h2{max-width:100%!important}.kicker,.k{line-height:1.2!important;margin-bottom:8px!important}.session{min-width:0!important}.session > div:last-child{min-width:0!important}.session h2{font-size:clamp(28px,3.4vw,44px)!important;line-height:1.08!important;margin-top:6px!important;margin-bottom:14px!important}.session p,.session .lead{margin-top:0!important}.theory-schema{clear:both!important;position:relative!important}.theory-schema h3{line-height:1.2!important}.exercise-list,.ex{line-height:1.05!important}
+@media(max-width:900px){.session{grid-template-columns:150px minmax(0,1fr)!important;gap:22px!important}.session-num,.session>b{font-size:82px!important}}
+@media(max-width:650px){.session{grid-template-columns:1fr!important;align-content:start!important}.session-num,.session>b{font-size:58px!important;padding:16px 10px!important}.session h2{font-size:clamp(27px,8vw,38px)!important}footer button{min-width:94px!important;font-size:13px!important;padding:8px 10px!important}.count{min-width:60px!important}}
 </style>
 </head>
 <body>
@@ -703,13 +553,16 @@ function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=
 document.getElementById('nextBtn').onclick=()=>show(i+1);document.getElementById('prevBtn').onclick=()=>show(i-1);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&navOverlay.classList.contains('show')){e.preventDefault();closeNav();return}if(['INPUT','TEXTAREA','BUTTON'].includes(document.activeElement.tagName))return;if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(i+1)}if(e.key==='ArrowLeft'){e.preventDefault();show(i-1)}});
 document.getElementById('menuBtn').onclick=openNav;
-document.getElementById('fsBtn').onclick=()=>{if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.()};
+document.getElementById('fsBtn').onclick=()=>{
+  const inIframe = window.self !== window.top;
+  if(inIframe){ window.open(window.location.href,'_blank','noopener'); return; }
+  if(document.fullscreenElement) document.exitFullscreen?.();
+  else document.documentElement.requestFullscreen?.();
+};
 
-// number line
 const ticks=document.getElementById('ticks1');for(let n=-5;n<=5;n++){let d=document.createElement('div');d.className='tick';d.textContent=n>0?'+'+n:n;ticks.appendChild(d)}
 document.querySelectorAll('[data-move]').forEach(b=>b.addEventListener('click',()=>{let n=Number(b.dataset.move);document.getElementById('marker1').style.left=((n+5)/10*96+2)+'%'}));
 
-// generic stepped text
 function stepper(nextId,resetId,boxId,steps){
   let k=0,box=document.getElementById(boxId),next=document.getElementById(nextId),reset=document.getElementById(resetId);
   function empty(){box.innerHTML='<div class="step-list"><div class="step-placeholder">Pulsa «Siguiente paso»</div></div>'}
@@ -728,15 +581,12 @@ stepper('opNext','opReset','opStep',['Primero multiplicaciones: 2 − 12 − (�
 stepper('gcdNext','gcdReset','gcdStep',['“Mayor número posible” y “sin que sobre” → m.c.d.','m.c.d.(240,225)=15','Cada caja tendrá 15 bocadillos.','240:15=16 cajas de jamón; 225:15=15 cajas de tortilla → 31 cajas']);
 stepper('lcmNext','lcmReset','lcmStep',['Buscamos la primera coincidencia → m.c.m.','90=2·3²·5 y 150=2·3·5²','m.c.m.(90,150)=2·3²·5²=450 min','450 min = 7 h 30 min']);
 
-// prime factorization
 let pf=0;const pfNext=document.getElementById('pfNext'),pfReset=document.getElementById('pfReset');
 pfNext.onclick=()=>{pf++;document.querySelectorAll('[data-pf="'+pf+'"]').forEach(x=>x.classList.add('show'));if(pf===4){document.getElementById('pfResult').textContent='60 = 2·2·3·5 = 2²·3·5';pfNext.disabled=true}};
 pfReset.onclick=()=>{pf=0;document.querySelectorAll('.pf').forEach(x=>x.classList.remove('show'));document.getElementById('pfResult').textContent='';pfNext.disabled=false};
 
-// divisibility quiz
 const fb=document.getElementById('divFeedback');document.querySelectorAll('#divQuiz button').forEach(b=>b.onclick=()=>{const v=b.textContent;let msg='';if(v==='2')msg='Sí: termina en 8, que es par.';if(v==='3')msg='Sí: 5+4+7+8=24, y 24 es múltiplo de 3.';if(v==='5')msg='No: no termina en 0 ni en 5.';if(v==='11')msg='Sí: (5+7)−(4+8)=0.';b.classList.add(b.dataset.ok==='1'?'correct':'wrong');fb.textContent=msg});
 
-// reveals
 [['tempReveal','tempSol'],['exitReveal','exitSol']].forEach(([a,b])=>document.getElementById(a).onclick=()=>document.getElementById(b).classList.toggle('show'));
 show(0);
 })();
