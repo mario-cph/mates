@@ -1,36 +1,1874 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tema en construcción</title>
-  <style>
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0; width: 100%; height: 100%;
-      font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.18), transparent 30%), linear-gradient(135deg, #173b63 0%, #245b8f 55%, #2c79ad 100%);
-      color: white; overflow: hidden;
-    }
-    .screen { width: 100%; height: 100%; min-height: 520px; display: flex; align-items: center; justify-content: center; padding: 32px; }
-    .card { width: min(900px, 94vw); background: rgba(255,255,255,0.97); color: #173b63; border-radius: 24px; padding: 48px 42px; text-align: center; box-shadow: 0 18px 50px rgba(0,0,0,0.22); border: 3px solid rgba(255,255,255,0.55); }
-    .icon { width: 112px; height: 112px; margin: 0 auto 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3b33d; font-size: 56px; box-shadow: 0 8px 22px rgba(243,179,61,0.35); }
-    h1 { margin: 0 0 14px; font-size: clamp(34px, 5vw, 58px); line-height: 1.05; }
-    .subtitle { margin: 0 auto; max-width: 650px; font-size: clamp(18px, 2.3vw, 26px); line-height: 1.4; color: #45637f; }
-    .status { margin-top: 30px; display: inline-block; padding: 12px 20px; border-radius: 999px; background: #fff4cf; color: #8a6411; font-weight: 700; font-size: 18px; border: 1px solid #f0d37c; }
-    .footer { margin-top: 28px; font-size: 15px; color: #6c8295; }
-    @media (max-width: 600px) { .screen { padding: 18px; } .card { padding: 34px 22px; } .icon { width: 90px; height: 90px; font-size: 44px; } }
-  </style>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tema 1 · Números reales y proporcionalidad · 4.º ESO B</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+:root{--n:#173b80;--blue:#246bfd;--red:#e65353;--green:#20a36a;--purple:#8057d5;--orange:#ef8b2c;--yellow:#fff1a8;--ink:#172033}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,#edf5ff,#fff);color:var(--ink);overflow:hidden}.slide{display:none;height:100vh;padding:12px 30px 70px;overflow:hidden;animation:in .4s}.slide.active{display:block}@keyframes in{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}h1{font-size:clamp(35px,4.5vw,62px);color:var(--n);margin:5px 0}h2{font-size:clamp(27px,3vw,41px);color:var(--n);margin:2px 0 9px}p{font-size:clamp(16px,1.45vw,22px);line-height:1.18;margin:4px 0}.hero{height:78vh;display:grid;place-items:center;text-align:center}.k{font-size:13px;font-weight:950;letter-spacing:.12em;color:var(--blue)}.lead{font-size:clamp(19px,1.8vw,26px)}.card,.theory,.solution,.schema,.yellow{background:#fff;border-radius:15px;padding:9px 15px;box-shadow:0 6px 20px #1d376a18}.b{border-top:5px solid var(--blue)}.r{border-top:5px solid var(--red)}.g{border-top:5px solid var(--green)}.p{border-top:5px solid var(--purple)}.o{border-top:5px solid var(--orange)}.theory,.schema,.yellow{background:var(--yellow);border-left:7px solid #dfad00}.solution{background:#e5f8ef;border-left:7px solid var(--green)}.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px;align-items:center}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.center{text-align:center}.eq{font-size:clamp(24px,2.7vw,38px);font-weight:900}.big{font-size:clamp(34px,4.6vw,64px);font-weight:950}.blue{color:var(--blue)}.red{color:var(--red)}.green{color:var(--green)}.purple{color:var(--purple)}.orange{color:var(--orange)}.badge{display:inline-block;padding:5px 11px;border-radius:99px;background:#dfeaff;color:var(--n);font-weight:900}.session{height:78vh;display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:center}.sn{font-size:105px;font-weight:950;color:white;background:linear-gradient(145deg,var(--blue),var(--purple));border-radius:28px;text-align:center;padding:28px 8px}.step,.frow{opacity:0;transform:translateY(12px);max-height:0;overflow:hidden;margin:0;transition:.4s}.step.show{opacity:1;transform:none;max-height:500px;margin:5px 0}.frow.show{opacity:1;transform:none;max-height:100px}.line{background:#fff;border-radius:15px;padding:35px 10px;text-align:center;font-size:25px;font-weight:850;border-bottom:4px solid var(--ink)}.sign{background:#fff;border-radius:14px;padding:10px;text-align:center;font-size:27px;font-weight:900}.exercise p{font-size:clamp(14px,1.25vw,19px)}.factorTable{border-collapse:collapse;margin:auto;font-size:30px;font-weight:900}.factorTable td{padding:2px 15px}.factorTable td:last-child{border-left:4px solid var(--ink);color:var(--red)}.controlsL,.controlsR{position:fixed;bottom:15px;display:flex;gap:8px;z-index:30}.controlsL{left:22px}.controlsR{right:22px}button{border:0;border-radius:12px;padding:11px 15px;font-size:16px;font-weight:800;background:var(--n);color:#fff;cursor:pointer}.secondary{background:#65738d}.accent{background:var(--green)}button:disabled{opacity:.3}.progress{position:fixed;bottom:0;left:0;height:5px;background:linear-gradient(90deg,var(--blue),var(--purple))}#counter{position:fixed;bottom:21px;left:50%;transform:translateX(-50%);font-weight:850;color:#66738a}.index{display:none;position:fixed;inset:0;background:#102044ef;z-index:60;padding:35px;color:white}.index.open{display:block}.index h2{color:white}.indexGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.indexGrid button{background:white;color:var(--n);text-align:left}.close{position:absolute;right:25px;top:20px;background:var(--red)}@media(max-height:760px){.slide{padding:8px 26px 64px}h2{font-size:29px}p{font-size:16px}.card,.theory,.solution,.schema,.yellow{padding:6px 12px}.step.show{margin:3px 0}.exercise p{font-size:13px}.session{height:74vh}.sn{font-size:80px}}
+</style>
+<style id="controles-benq-final">
+.controlsL,.controlsR{
+  position:fixed!important;
+  bottom:15px!important;
+  top:auto!important;
+  z-index:70!important;
+}
+.controlsL{left:22px!important;right:auto!important}
+.controlsR{right:22px!important;left:auto!important}
+
+.controlsL button{
+  width:52px!important;
+  height:48px!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:27px!important;
+  border-radius:13px!important;
+  box-shadow:0 5px 14px #17203330!important;
+}
+.controlsL .indexIcon{
+  background:var(--blue)!important;
+  color:#fff!important;
+}
+.controlsL .fullIcon{
+  background:var(--purple)!important;
+  color:#fff!important;
+}
+.controlsL .indexIcon:hover{background:#1557df!important}
+.controlsL .fullIcon:hover{background:#6841bf!important}
+
+.indexGrid button{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:3px!important;
+  min-height:66px!important;
+  padding:10px 14px!important;
+}
+.indexGrid button b{
+  font-size:18px!important;
+  color:var(--n)!important;
+}
+.indexGrid button span{
+  font-size:14px!important;
+  line-height:1.15!important;
+  color:#56647c!important;
+  font-weight:650!important;
+}
+</style>
+<style id="regla-signos-visual">
+.signGroups{align-items:stretch!important}
+.signBlock{padding:8px 16px!important}
+.signBlock h3{text-align:center;margin:0 0 4px;font-size:27px!important}
+.multBlock{border-top:6px solid var(--orange)!important}
+.divBlock{border-top:6px solid var(--purple)!important}
+.signRule{
+  background:#fff;border-radius:12px;padding:3px 8px!important;
+  text-align:center;white-space:nowrap
+}
+.signRule .operand{
+  display:inline-block;font-size:42px;font-weight:950;
+  min-width:43px;vertical-align:middle
+}
+.signRule .operator{
+  display:inline-block;font-size:29px;font-weight:950;
+  min-width:45px;vertical-align:middle
+}
+.signRule .equals{
+  display:inline-block;font-size:25px;font-weight:900;
+  margin:0 8px;vertical-align:middle;color:#65738d
+}
+.signRule .result{
+  display:inline-block;font-size:45px;font-weight:950;
+  min-width:43px;vertical-align:middle
+}
+.signRule .plus{color:var(--blue)}
+.signRule .minus{color:var(--red)}
+.signRule .mult{color:var(--orange)}
+.signRule .divide{color:var(--purple)}
+.signRule .result.plus{color:var(--green)}
+.signRule .result.minus{color:var(--red)}
+@media(max-height:760px){
+ .signBlock h3{font-size:24px!important}
+ .signRule .operand{font-size:35px}
+ .signRule .operator{font-size:25px}
+ .signRule .result{font-size:38px}
+ .signRule{padding:1px 7px!important}
+}
+</style>
+<style id="benq-fontes-grandes-v3">
+/* Aumentamos sobre todo los textos secundarios y explicaciones paso a paso */
+.slide p,
+.slide li,
+.slide .step:not(.signRule),
+.slide .card,
+.slide .theory,
+.slide .remember,
+.slide .note,
+.slide .proc-card,
+.slide .proc-note{
+  font-size:clamp(25px,2.15vw,33px)!important;
+  line-height:1.17!important;
+}
+.slide .step:not(.signRule) p,
+.slide .step:not(.signRule) li{
+  font-size:inherit!important;
+}
+.slide small,
+.slide .small,
+.slide .subtitle,
+.slide .sub{
+  font-size:clamp(22px,1.85vw,29px)!important;
+  line-height:1.15!important;
+}
+.slide h3{
+  font-size:clamp(29px,2.7vw,40px)!important;
+}
+.slide .proc-eq,
+.slide .eq{
+  font-size:clamp(34px,3.1vw,48px)!important;
+}
+@media(min-width:900px) and (max-height:800px){
+ .slide p,.slide li,.slide .step:not(.signRule),.slide .card,
+ .slide .theory,.slide .remember,.slide .note,.slide .proc-card,.slide .proc-note{
+   font-size:24px!important;line-height:1.1!important
+ }
+ .slide small,.slide .small,.slide .subtitle,.slide .sub{font-size:21px!important}
+ .slide h3{font-size:28px!important}
+}
+/* Reducimos espacios antes que reducir la letra */
+.slide .step.show,.slide .proc-step.revealed{margin-top:3px!important;margin-bottom:3px!important}
+.slide .card,.slide .proc-card{padding-top:6px!important;padding-bottom:6px!important}
+</style>
+<style>
+.oa-grid,.par-grid{align-items:stretch!important}.oa-left{border-top:7px solid var(--blue)!important}.oa-right{border-top:7px solid var(--purple)!important}
+.oa-left h3,.oa-right h3,.par-grid h3{text-align:center;font-size:31px!important}
+.oa-text,.par-text{font-size:25px!important;line-height:1.12!important}.oa-example,.par-example{font-size:31px!important;font-weight:850;text-align:center;padding:3px 5px!important}
+.par-long{font-size:27px!important;line-height:1.1!important;padding:6px 14px!important}
+@media(max-height:800px){.oa-text,.par-text{font-size:23px!important}.oa-example,.par-example{font-size:28px!important}.par-long{font-size:24px!important;padding:4px 12px!important}}
+</style>
+<style id="recta-op-parentesis-final">
+.numberline-vivid{
+ background:linear-gradient(90deg,#ffe3e3 0 49.7%,#e1f0ff 50.3% 100%);
+ border:4px solid #ff9f1c;border-radius:18px;padding:35px 24px 12px!important;
+ margin:10px auto!important;position:relative;max-width:1100px;min-height:150px;
+ box-shadow:0 0 0 6px #ffbf6940,0 8px 20px #17203320
+}
+.nl-axis{height:55px;position:relative;border-top:7px solid #ff7a00;margin-top:17px}
+.nl-axis:before,.nl-axis:after{content:"";position:absolute;top:-15px;width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.nl-axis:before{left:-8px;border-right:18px solid #ff7a00}.nl-axis:after{right:-8px;border-left:18px solid #ff7a00}
+.tick{position:absolute;top:-13px;transform:translateX(-50%);text-align:center}
+.tick i{display:block;width:5px;height:20px;background:#172033;margin:auto}
+.tick b{display:block;font-size:24px;margin-top:3px}.tick.zero b{color:#ff7a00;font-size:29px}
+.nl-label{position:absolute;top:5px;font-size:22px;font-weight:900}.nl-label.left{left:17%;color:#d94848}.nl-label.right{right:17%;color:#246bfd}
+.nl-caption{text-align:center;font-size:22px!important;font-weight:850;color:#38445b;margin-top:4px}
+.oa-grid,.par-grid{align-items:stretch!important}.oa-left{border-top:7px solid var(--blue)!important}.oa-right{border-top:7px solid var(--purple)!important}
+.oa-example,.par-example{font-size:30px!important;font-weight:850;text-align:center;padding:3px!important}
+.oa-text{font-size:25px!important}
+@media(max-height:800px){
+ .numberline-vivid{min-height:125px;padding-top:29px!important;margin:5px auto!important}
+ .tick b{font-size:21px}.nl-caption{font-size:19px!important}.nl-label{font-size:19px}
+ .oa-example,.par-example{font-size:27px!important}.oa-text{font-size:23px!important}
+}
+</style>
+<style id="tema2-fracciones">
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;
+line-height:1.0;font-weight:900;margin:0 .12em;min-width:1.15em}
+.frac>span:first-child{border-bottom:3px solid currentColor;padding:0 .12em .05em}
+.frac>span:last-child{padding:.05em .12em 0}
+.frac.bigf{font-size:1.35em}
+.mathrow{font-size:clamp(30px,3.2vw,48px);font-weight:900;text-align:center;margin:4px 0}
+.decimal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.rule{font-size:clamp(27px,2.6vw,39px);font-weight:900;text-align:center}
+.compact p{margin:2px 0!important}
+.proc{border-left:7px solid var(--blue)}
+@media(max-height:800px){
+ .slide p,.slide li,.slide .step:not(.signRule),.slide .card,.slide .theory,
+ .slide .schema,.slide .solution{font-size:22px!important;line-height:1.08!important}
+ .mathrow{font-size:31px!important}.decimal-grid{gap:6px}
+}
+</style>
+<style id="fix-fracciones-benq">
+/* Fracciones: versión compatible con el navegador de la BenQ */
+.frac{
+  display:inline-block !important;
+  vertical-align:middle !important;
+  text-align:center !important;
+  line-height:1 !important;
+  min-width:1.25em !important;
+  margin:0 .12em !important;
+  font-weight:900 !important;
+  color:inherit !important;
+  overflow:visible !important;
+  max-height:none !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+.frac > span,
+.frac .top,
+.frac .bottom{
+  display:block !important;
+  position:static !important;
+  width:auto !important;
+  height:auto !important;
+  max-height:none !important;
+  overflow:visible !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  color:inherit !important;
+  transform:none !important;
+  padding:.06em .16em !important;
+}
+.frac > span:first-child,
+.frac .top{
+  border-bottom:3px solid currentColor !important;
+}
+.frac > span:last-child,
+.frac .bottom{
+  border-bottom:0 !important;
+}
+.exercise .frac,.solution .frac,.math .frac,.mathrow .frac,.eq .frac{
+  font-size:1.12em !important;
+}
+</style>
+<style id="graficos-operaciones-v4">
+.decimal-op{width:300px;margin:6px auto;font-size:clamp(32px,3.2vw,46px);font-weight:900;text-align:right;font-variant-numeric:tabular-nums;line-height:1.05}
+.decimal-op>div{padding-right:18px}.decimal-op .opline{display:grid;grid-template-columns:45px 1fr;border-bottom:4px solid currentColor;padding:2px 18px 5px 0}.decimal-op .opline span:first-child{text-align:center}.decimal-op .result{border:0;padding-top:5px}.decimal-op.mult{width:250px}
+.division-demo{display:flex;justify-content:center;align-items:flex-start;margin:7px auto;font-size:clamp(30px,3vw,43px);font-weight:900}.dividend{padding:12px 24px 10px 5px}.division-right{border-left:5px solid #334155;min-width:220px}.divisor{border-bottom:5px solid #334155;padding:10px 18px}.quotient{padding:8px 18px;text-align:center;color:var(--green)}.move{display:block;font-size:.65em;color:var(--blue);margin-top:4px}.possibilities{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mini{border:2px solid #cbd5e1;border-radius:14px;padding:8px;text-align:center;font-size:clamp(20px,1.8vw,27px);font-weight:800;background:white}.mini span{color:var(--blue);font-size:1.05em}
+@media(max-height:800px){.division-demo{font-size:30px}.possibilities{gap:5px}.mini{font-size:19px;padding:5px}.decimal-op{font-size:30px;margin:3px auto}}
+</style>
+<style id="division-larga-v5">
+/* División larga: solo la esquina superior izquierda del divisor; NO prolongar la vertical hacia abajo */
+.division-workspace{position:relative}.instruction{margin-bottom:5px!important}.division-stage{position:relative;height:245px;margin:2px auto 4px;max-width:900px}.longdiv{position:absolute;left:50%;top:62px;transform:translateX(-50%);display:flex;align-items:flex-start;font-size:clamp(38px,4vw,58px);font-weight:900;min-width:360px}.ld-left{width:180px;text-align:right;padding:8px 25px 0 0}.ld-right{width:170px;position:relative}.ld-divisor{border-left:5px solid #334155;border-bottom:5px solid #334155;padding:8px 12px 7px 22px;text-align:center}.ld-quotient{padding:8px 12px;text-align:center;min-height:1.15em}.green{color:var(--green)}
+/* ocultamos expresamente cualquier prolongación inferior */.ld-right:before,.ld-right:after{content:none!important}.ld-quotient{border-left:0!important}
+.callout{position:absolute;left:0;top:0;width:100%;text-align:center;font-size:clamp(20px,2vw,28px);font-weight:800}.callout.second{top:190px}.overlay{position:absolute;inset:0;background:var(--bg,#f8fafc);z-index:4}.overlay .longdiv{top:62px}.move-one{background:transparent;pointer-events:none;font-size:25px;font-weight:900}.move-one .from,.move-one .to,.move-one .arrow{position:absolute;top:140px}.move-one .from.a{left:24%}.move-one .arrow{left:39%;color:var(--orange)}.move-one .to.a{left:45%;color:var(--blue)}.move-one .from.b{left:58%}.move-one .arrow.b2{left:69%}.move-one .to.b{left:76%;color:var(--blue)}.move-one .comma{color:var(--red);font-size:1.3em}.transformed,.solved{background:transparent}.transformed .longdiv,.solved .longdiv{background:var(--bg,#f8fafc);padding:0 30px}.examples-title{text-align:center;font-size:23px;margin:2px}.examples-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.example-zone{border:2px solid #cbd5e1;border-radius:14px;padding:6px;text-align:center;background:#fff;font-size:18px!important}.mini-div{display:flex;justify-content:center;align-items:flex-start;font-size:22px;font-weight:900;margin:5px}.mini-div>span:first-child{padding:6px 10px}.mini-div>span:last-child{display:flex;flex-direction:column}.mini-div i{font-style:normal;border-left:3px solid #334155;border-bottom:3px solid #334155;padding:5px 8px}.mini-div em{font-style:normal;padding:4px;color:var(--green)}.example-zone small{font-size:16px;font-weight:700}.slide .theory{margin-top:5px!important}
+@media(max-height:800px){.division-stage{height:205px}.longdiv{top:48px;font-size:38px}.callout.second{top:155px}.move-one .from,.move-one .to,.move-one .arrow{top:112px}.examples-grid{gap:4px}.example-zone{padding:4px;font-size:16px!important}.mini-div{font-size:19px;margin:2px}.example-zone small{font-size:14px}}
+</style>
+<style id="division-clean-v6">
+.division-clean{position:relative}
+.div-note{margin-bottom:3px!important}
+.div-stage-clean{height:238px;position:relative;max-width:900px;margin:0 auto 4px}
+.div-state{position:absolute;inset:0;background:#f8fafc;z-index:1}
+.div-state.step{z-index:5}
+.div-state.step.show{display:block!important;opacity:1!important;visibility:visible!important;transform:none!important}
+.clean-longdiv{position:absolute;left:50%;top:78px;transform:translateX(-50%);display:flex;align-items:flex-start;font-size:clamp(39px,4vw,58px);font-weight:900;min-width:360px}
+.cl-left{width:180px;text-align:right;padding:8px 25px 0 0}
+.cl-right{width:170px}
+.cl-divisor{border-left:5px solid #334155;border-bottom:5px solid #334155;padding:8px 12px 7px 22px;text-align:center}
+.cl-q{padding:8px 12px;text-align:center;min-height:1.1em;border-left:0!important}
+.state-caption{position:absolute;top:7px;left:4%;width:92%;text-align:center;font-size:clamp(21px,2vw,29px);font-weight:800}
+.start-num,.start-box,.start-key{color:#1565c0!important}
+.end-num,.end-box,.end-key,.result-num{color:#15803d!important}
+.result-num{font-size:1.08em}
+.move-pair{position:absolute;top:88px;left:8%;width:84%;display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.move-pair>div,.ex-change{display:flex;align-items:center;justify-content:center;gap:10px;font-size:clamp(27px,2.7vw,39px);font-weight:900}
+.start-box,.end-box{border-radius:12px;padding:7px 10px}
+.start-box{background:#eaf3ff;border:2px solid #60a5fa}
+.end-box{background:#ecfdf5;border:2px solid #4ade80}
+.move-arrow{color:#ea580c;font-size:1.25em}
+.examples-head{text-align:center;font-size:21px!important;margin:1px 0 4px!important}
+.clean-examples{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ex-card{background:white;border:2px solid #cbd5e1;border-radius:13px;padding:5px 7px;text-align:center;font-size:17px!important}
+.ex-change{font-size:19px;margin:4px 0;gap:5px}
+.ex-card .start-box,.ex-card .end-box{padding:3px 5px;border-width:2px}
+.ex-card small{font-size:15px;font-weight:700}
+@media(max-height:800px){
+ .div-stage-clean{height:190px}.clean-longdiv{top:58px;font-size:36px}.state-caption{font-size:19px}.move-pair{top:70px}
+ .examples-head{font-size:18px!important}.clean-examples{gap:4px}.ex-card{font-size:15px!important;padding:3px}.ex-change{font-size:16px}.ex-card small{font-size:13px}
+}
+</style>
+<style id="index-jump-v6">
+.jumpSlide{grid-column:1/-1;margin-top:10px;padding-top:10px;border-top:2px solid #dbeafe;display:flex;align-items:center;justify-content:center;gap:14px}
+.jumpSlide label{font-size:22px;color:#1e3a8a}
+.jumpRow{display:flex;gap:7px;align-items:center}
+.jumpRow input{width:105px;font-size:24px;font-weight:900;text-align:center;padding:8px;border:3px solid #60a5fa;border-radius:12px;background:white}
+.jumpRow button{font-size:21px;font-weight:900;padding:9px 18px;border-radius:12px;background:#2563eb;color:white;border:0;cursor:pointer}
+</style>
+<style id="division-two-columns-v7">
+.jumpSlide label{color:#ffffff!important;background:#1e3a8a;padding:7px 14px;border-radius:12px;
+box-shadow:0 2px 7px rgba(0,0,0,.22)}
+.div-two-columns{display:grid;grid-template-columns:44% 56%;gap:14px;height:315px;margin-top:2px}
+.div-left-panel,.div-right-panel{position:relative;border-radius:18px;padding:8px 12px}
+.div-left-panel{background:#eef6ff;border:3px solid #93c5fd;overflow:hidden}
+.div-right-panel{background:#fffaf0;border:3px solid #fbbf24;overflow:hidden}
+.panel-title{text-align:center;font-size:20px;font-weight:1000;letter-spacing:.06em;color:#1e3a8a;margin-bottom:3px}
+.div-right-panel .panel-title{color:#92400e}
+.visual-state{position:absolute;left:8px;right:8px;top:42px;bottom:8px;background:#eef6ff;z-index:1}
+.visual-state.step{z-index:4}
+.visual-state.step.show{display:block!important;opacity:1!important;visibility:visible!important;transform:none!important}
+.clean-longdiv.fixed{top:76px}.clean-longdiv.lower{top:132px}
+.comma-hot{color:#dc2626;font-size:1.25em;text-shadow:0 0 8px #fca5a5}
+.move-labels{position:absolute;top:155px;left:12%;right:8%;display:flex;justify-content:space-around;color:#ea580c;font-size:21px;font-weight:1000}
+.change-line{display:flex;align-items:center;justify-content:center;gap:10px;font-size:28px;font-weight:1000;margin:10px 0}
+.explanation-step{display:flex!important;gap:9px;align-items:flex-start;margin:6px 0!important;padding:7px 9px!important;border-radius:13px;background:white;border-left:6px solid #f59e0b;font-size:clamp(18px,1.65vw,24px)!important;line-height:1.12!important}
+.explanation-step:not(.show){display:none!important}
+.step-n{flex:0 0 31px;height:31px;border-radius:50%;background:#f59e0b;color:white;display:flex;align-items:center;justify-content:center;font-weight:1000}
+.compact-examples{grid-template-columns:repeat(4,1fr)!important}
+.division-teaching-slide .examples-head{font-size:19px!important;margin:4px 0!important}
+.division-teaching-slide .ex-card{font-size:15px!important;padding:4px!important}
+.division-teaching-slide .ex-change{font-size:15px!important}
+.division-teaching-slide .ex-card small{font-size:13px!important}
+.division-teaching-slide .theory{font-size:18px!important;margin-top:4px!important}
+@media(max-height:800px){
+ .div-two-columns{height:270px}.clean-longdiv.fixed{top:55px}.clean-longdiv.lower{top:110px}
+ .explanation-step{font-size:17px!important;margin:4px 0!important;padding:5px 7px!important}
+ .move-labels{top:125px}.change-line{font-size:23px;margin:5px}
+}
+</style>
+<style id="step-icons-v7">
+.stepIcon{width:52px!important;min-width:52px!important;padding:8px 0!important;font-size:29px!important;
+line-height:1!important;font-weight:1000!important}
+.stepIcon:disabled{opacity:.35!important}
+</style>
+<style id="v8-controls-and-fit">
+/* Diapositiva 40: controlar estrictamente el texto de ¿QUÉ HACEMOS? */
+.division-teaching-slide .div-right-panel{
+  padding:6px 10px!important;
+  overflow:hidden!important;
+}
+.division-teaching-slide .div-right-panel .panel-title{
+  font-size:18px!important;
+  line-height:1!important;
+  margin:0 0 3px!important;
+}
+.division-teaching-slide .explanation-step{
+  font-size:clamp(15px,1.32vw,19px)!important;
+  line-height:1.06!important;
+  margin:4px 0!important;
+  padding:5px 7px!important;
+  gap:7px!important;
+}
+.division-teaching-slide .step-n{
+  flex:0 0 27px!important;
+  width:27px!important;height:27px!important;
+  font-size:16px!important;
+}
+@media(max-height:800px){
+ .division-teaching-slide .explanation-step{
+   font-size:14px!important;line-height:1.03!important;margin:3px 0!important;padding:4px 6px!important;
+ }
+ .division-teaching-slide .div-right-panel .panel-title{font-size:16px!important}
+}
+
+/* Todos los controles inferiores principales pasan a ser iconos */
+.controlsR button.navIcon{
+  width:52px!important;min-width:52px!important;
+  height:46px!important;padding:0!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  font-size:27px!important;line-height:1!important;font-weight:1000!important;
+  position:relative;
+}
+.controlsR button.navIcon[data-tip]::after,
+.controlsL button[data-tip]::after{
+  content:attr(data-tip);
+  position:absolute;
+  bottom:calc(100% + 9px);
+  left:50%;
+  transform:translateX(-50%);
+  background:#172554;color:#fff;
+  padding:7px 10px;border-radius:9px;
+  font-size:15px;font-weight:800;line-height:1;
+  white-space:nowrap;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .16s ease;
+  z-index:9999;
+  box-shadow:0 3px 10px rgba(0,0,0,.25);
+}
+.controlsR button.navIcon[data-tip]:hover::after,
+.controlsR button.navIcon[data-tip]:focus-visible::after,
+.controlsL button[data-tip]:hover::after,
+.controlsL button[data-tip]:focus-visible::after{
+  opacity:1;visibility:visible;
+}
+.controlsL button{position:relative}
+
+/* Cuando el índice está abierto, los controles de la presentación parecen y quedan desactivados. */
+body.index-open .controlsL,
+body.index-open .controlsR,
+body.index-open #counter{
+  pointer-events:none!important;
+  opacity:.28!important;
+  filter:grayscale(.45);
+}
+</style>
+<style id="v9-colores-controles">
+#prevStepBtn{
+  background:#7c3aed!important;
+  border-color:#6d28d9!important;
+  color:#fff!important;
+}
+#prevStepBtn:hover:not(:disabled),
+#prevStepBtn:focus-visible:not(:disabled){
+  background:#6d28d9!important;
+}
+#resetBtn{
+  background:#e11d48!important;
+  border-color:#be123c!important;
+  color:#fff!important;
+}
+#resetBtn:hover:not(:disabled),
+#resetBtn:focus-visible:not(:disabled){
+  background:#be123c!important;
+}
+#prevStepBtn:disabled,#resetBtn:disabled{
+  opacity:.35!important;
+}
+</style>
+<style id="v10-sin-tooltip-personalizado">
+.controlsR button[data-tip]::after,
+.controlsL button[data-tip]::after{
+  content:none!important;
+  display:none!important;
+}
+</style>
+
+<style id="solo-componentes-4eso">
+.sets{display:grid;place-items:center;min-height:260px;position:relative}
+.setR,.setQ,.setZ,.setN{position:absolute;border-radius:28px;border:3px solid;padding:12px;font-weight:900}
+.setR{width:88%;height:88%;border-color:var(--blue);color:var(--blue)}
+.setQ{width:68%;height:68%;border-color:#4d83c5;color:#4d83c5}
+.setZ{width:48%;height:48%;border-color:var(--green);color:var(--green)}
+.setN{width:28%;height:28%;border-color:#dfad00;color:#9c7112}
+.irrat{position:absolute;right:10%;bottom:15%;color:var(--red);font-weight:800}
+.numberline{position:relative;height:100px;margin:10px auto;max-width:850px}
+.numberline:before{content:"";position:absolute;left:3%;right:3%;top:47px;height:3px;background:#444}
+.seg{position:absolute;top:42px;height:12px;background:#9fc2ec;border:2px solid var(--blue)}
+.dot{position:absolute;top:38px;width:20px;height:20px;border-radius:50%;transform:translateX(-50%);z-index:2}
+.dot.closed{background:var(--blue)}.dot.open{background:#fff;border:3px solid var(--blue)}
+.dec-table{width:100%;border-collapse:collapse;font-size:22px}
+.dec-table th,.dec-table td{border:1px solid #d8dfeb;padding:6px;text-align:center}
+.quiz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.quiz-options button{padding:10px;border-radius:12px;border:1px solid #d8dfeb;background:#fff;color:var(--ink);font-size:18px;font-weight:800}
+.exercise-list.full{background:#fff;border-radius:15px;padding:7px 13px;box-shadow:0 6px 20px #1d376a18}
+.exercise-list.full p{margin:3px 0}
+.theory-schema{background:var(--yellow);border-left:7px solid #dfad00;border-radius:15px;padding:8px 13px}
+.schema-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.schema-item{background:#fffdf5;border-radius:10px;padding:7px 9px}
+@media(max-height:800px){
+ .sets{min-height:210px}
+ .dec-table{font-size:18px}
+ .schema-item{padding:5px 7px}
+}
+</style>
+
+
+<style id="tema1-4eso-ajuste-visual-v5">
+/* Área útil: aprovechar la BenQ sin tocar los controles inferiores */
+.slide{
+  padding:10px 28px 68px!important;
+}
+.hero{
+  height:82vh!important;
+}
+.session{
+  height:82vh!important;
+}
+
+/* Misma filosofía tipográfica que Tema 2 de 2.º: grande y legible desde el fondo */
+.slide p,
+.slide li,
+.slide .card,
+.slide .theory,
+.slide .schema,
+.slide .solution,
+.slide .yellow,
+.slide .stepbox{
+  font-family:Inter,Segoe UI,Arial,sans-serif!important;
+  font-size:clamp(24px,2.05vw,32px)!important;
+  line-height:1.14!important;
+}
+.slide h1{
+  font-family:Inter,Segoe UI,Arial,sans-serif!important;
+  font-size:clamp(39px,4.7vw,66px)!important;
+  line-height:1.02!important;
+}
+.slide h2{
+  font-family:Inter,Segoe UI,Arial,sans-serif!important;
+  font-size:clamp(31px,3.25vw,45px)!important;
+  line-height:1.04!important;
+  margin:1px 0 8px!important;
+}
+.slide h3{
+  font-family:Inter,Segoe UI,Arial,sans-serif!important;
+  font-size:clamp(28px,2.55vw,38px)!important;
+  line-height:1.05!important;
+}
+.slide .lead{
+  font-size:clamp(24px,2.1vw,32px)!important;
+  line-height:1.13!important;
+}
+.slide .k{
+  font-size:15px!important;
+  font-weight:950!important;
+  letter-spacing:.12em!important;
+  color:var(--blue)!important;
+}
+
+/* Tarjetas: colores vivos de la plantilla */
+.slide .card{
+  border-radius:15px!important;
+  padding:9px 15px!important;
+  box-shadow:0 6px 20px #1d376a18!important;
+  background:#fff!important;
+}
+.slide .card.blue{border-top:6px solid var(--blue)!important;color:var(--ink)!important}
+.slide .card.red{border-top:6px solid var(--red)!important;color:var(--ink)!important}
+.slide .card.green{border-top:6px solid var(--green)!important;color:var(--ink)!important}
+.slide .card.purple{border-top:6px solid var(--purple)!important;color:var(--ink)!important}
+.slide .card.orange{border-top:6px solid var(--orange)!important;color:var(--ink)!important}
+.slide .card.yellow,
+.slide .yellow{
+  background:var(--yellow)!important;
+  border-left:7px solid #dfad00!important;
+  color:var(--ink)!important;
+}
+.slide .solution{
+  background:#e5f8ef!important;
+  border-left:7px solid var(--green)!important;
+  border-radius:15px!important;
+  padding:9px 15px!important;
+  box-shadow:0 6px 20px #1d376a18!important;
+}
+
+/* Rejillas más anchas: usar prácticamente toda la pantalla */
+.slide .g2{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:13px!important}
+.slide .g3{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:11px!important}
+.slide .g4{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important}
+.slide .g2>*,.slide .g3>*,.slide .g4>*{min-width:0}
+
+/* Paso a paso: una sola zona grande. Nada de botones en medio. */
+.slide .stepbox{
+  width:100%!important;
+  min-height:330px!important;
+  margin:8px 0 0!important;
+  padding:13px 18px!important;
+  background:#fff!important;
+  border-radius:18px!important;
+  border-left:8px solid var(--blue)!important;
+  box-shadow:0 7px 22px #1d376a1f!important;
+  overflow:hidden!important;
+}
+.slide .step-placeholder{
+  display:block;
+  text-align:center;
+  color:#65738d;
+  font-weight:850;
+  padding-top:105px;
+}
+.slide .step-history-item{
+  font-size:clamp(24px,2.0vw,31px)!important;
+  line-height:1.12!important;
+  margin:6px 0!important;
+  padding:9px 13px!important;
+  border-radius:13px!important;
+  background:#eef5ff!important;
+  border-left:6px solid var(--blue)!important;
+  color:var(--ink)!important;
+}
+.slide .step-history-item:nth-child(2){background:#fff5e8!important;border-left-color:var(--orange)!important}
+.slide .step-history-item:nth-child(3){background:#f1ecff!important;border-left-color:var(--purple)!important}
+.slide .step-history-item:nth-child(4){background:#e8f8ef!important;border-left-color:var(--green)!important}
+
+/* Ocultar cualquier control antiguo que pudiera quedar dentro del contenido */
+.slide .actions:has(button[id$="Next"]),
+.slide .actions:has(button[id$="Reset"]){
+  display:none!important;
+}
+
+/* Ajuste de altura: primero compactar espacios, manteniendo letra grande */
+@media(max-height:800px){
+ .slide{padding:7px 25px 64px!important}
+ .slide h1{font-size:45px!important}
+ .slide h2{font-size:31px!important}
+ .slide h3{font-size:28px!important}
+ .slide p,.slide li,.slide .card,.slide .theory,.slide .schema,.slide .solution,.slide .yellow,.slide .stepbox{
+   font-size:23px!important;line-height:1.08!important
+ }
+ .slide .lead{font-size:23px!important}
+ .slide .card,.slide .solution{padding:6px 11px!important}
+ .slide .g2,.slide .g3,.slide .g4{gap:7px!important}
+ .slide .stepbox{min-height:270px!important;padding:8px 12px!important}
+ .slide .step-placeholder{padding-top:80px}
+ .slide .step-history-item{font-size:22px!important;line-height:1.07!important;margin:4px 0!important;padding:6px 10px!important}
+}
+</style>
+
+
+<style id="sesiones-y-pasos-v6">
+/* Portadas de sesión: misma composición visual que Tema 2 de 2.º */
+.slide .session{
+  display:grid!important;
+  grid-template-columns:150px 1fr!important;
+  gap:24px!important;
+  align-items:center!important;
+  height:calc(100vh - 92px)!important;
+  padding:0 12px!important;
+}
+.slide .session-num{
+  display:grid!important;
+  place-items:center!important;
+  width:150px!important;
+  min-height:190px!important;
+  padding:18px 6px!important;
+  border-radius:26px!important;
+  background:linear-gradient(145deg,var(--blue),var(--purple))!important;
+  color:#fff!important;
+  font-size:96px!important;
+  line-height:1!important;
+  font-weight:950!important;
+  box-shadow:0 14px 32px #1d376a32!important;
+}
+.slide .session h1,.slide .session h2{
+  color:var(--blue)!important;
+}
+.slide .session .lead{
+  color:#53647c!important;
+  font-size:clamp(24px,2.15vw,32px)!important;
+}
+
+/* No añadir explicaciones negras superpuestas a contenido matemático */
+.slide .step-placeholder{display:none!important}
+.slide .stepbox{
+  color:var(--ink)!important;
+}
+.slide .step-history-item{
+  position:relative!important;
+  color:var(--ink)!important;
+  background:#fff!important;
+  padding:10px 14px 10px 50px!important;
+  min-height:48px!important;
+}
+.slide .step-history-item::before{
+  content:attr(data-step)!important;
+  position:absolute!important;
+  left:11px!important;
+  top:9px!important;
+  width:29px!important;
+  height:29px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:50%!important;
+  background:var(--blue)!important;
+  color:#fff!important;
+  font-size:15px!important;
+  font-weight:950!important;
+}
+.slide .step-history-item:nth-child(2)::before{background:var(--orange)!important}
+.slide .step-history-item:nth-child(3)::before{background:var(--purple)!important}
+.slide .step-history-item:nth-child(4)::before{background:var(--green)!important}
+
+/* El área de paso a paso queda vacía hasta pulsar ↷: no se explica qué hacer */
+.slide .stepbox:empty{
+  min-height:300px!important;
+  background:#f8fbff!important;
+}
+
+/* Evitar textos negros decorativos o auxiliares por encima de otros */
+.slide .stepbox::before,
+.slide .stepbox::after{content:none!important}
+
+/* Ningún control de procedimiento dentro de la diapositiva */
+.slide .actions{display:none!important}
+
+@media(max-height:800px){
+ .slide .session{
+   grid-template-columns:125px 1fr!important;
+   gap:18px!important;
+   height:calc(100vh - 80px)!important;
+ }
+ .slide .session-num{
+   width:125px!important;
+   min-height:155px!important;
+   font-size:78px!important;
+ }
+ .slide .stepbox:empty{min-height:240px!important}
+}
+</style>
+
+
+<style id="limpieza-v7">
+/* Contador igual que la plantilla de 2.º: 3/25 */
+#counter{
+  font-weight:900!important;
+  letter-spacing:.02em!important;
+  white-space:nowrap!important;
+}
+
+/* No mostrar cabeceras, ayudas o textos auxiliares fuera de la diapositiva */
+body > header,
+body > .kicker,
+body > .k,
+body > .help,
+body > .instructions,
+body > .navigation-help{
+  display:none!important;
+}
+
+/* Dentro de cada diapositiva sólo se muestran títulos y contenido real.
+   No reservamos espacio superior para cabeceras antiguas. */
+.slide{
+  padding-top:10px!important;
+}
+.slide > .kicker,
+.slide > .navigation-help,
+.slide > .instructions{
+  display:none!important;
+}
+
+/* El paso a paso empieza limpio: sin mensaje de ayuda. */
+.step-placeholder{display:none!important}
+</style>
+
+
+<style id="correccion-callouts-v8">
+/* Las explicaciones pertenecen al flujo normal de la diapositiva:
+   nunca flotan ni se colocan sobre el título. */
+.slide .callout{
+  position:static!important;
+  inset:auto!important;
+  top:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:auto!important;
+  transform:none!important;
+  width:auto!important;
+  max-width:none!important;
+  margin:12px 0 0!important;
+  padding:10px 16px!important;
+  border-radius:15px!important;
+  background:#eaf2ff!important;
+  border-left:7px solid var(--blue)!important;
+  color:var(--ink)!important;
+  font-family:Inter,Segoe UI,Arial,sans-serif!important;
+  font-size:clamp(22px,1.8vw,29px)!important;
+  line-height:1.12!important;
+  font-weight:800!important;
+  box-shadow:0 6px 20px #1d376a18!important;
+  z-index:auto!important;
+}
+
+/* Ningún texto explicativo puede quedar colocado como cabecera flotante. */
+.slide .lead,
+.slide .theory,
+.slide .solution,
+.slide .yellow,
+.slide .schema,
+.slide .exercise-list,
+.slide .stepbox{
+  position:static!important;
+  transform:none!important;
+}
+
+/* El título conserva siempre su propia zona superior. */
+.slide > h2{
+  position:relative!important;
+  z-index:2!important;
+  margin-top:0!important;
+  margin-bottom:12px!important;
+}
+
+/* En pantallas BenQ compactamos espacios, no superponemos elementos. */
+@media(max-height:800px){
+ .slide .callout{
+   margin-top:8px!important;
+   padding:7px 12px!important;
+   font-size:21px!important;
+   line-height:1.08!important;
+ }
+ .slide > h2{margin-bottom:8px!important}
+}
+</style>
+
+
+<style id="contador-y-pasos-v9">
+#counter{
+  display:block!important;
+  position:fixed!important;
+  left:50%!important;
+  bottom:20px!important;
+  transform:translateX(-50%)!important;
+  z-index:40!important;
+  color:#66738a!important;
+  font-family:Inter,Segoe UI,Arial,sans-serif!important;
+  font-size:18px!important;
+  line-height:1!important;
+  font-weight:900!important;
+  background:transparent!important;
+  pointer-events:none!important;
+}
+.progress{
+  display:block!important;
+  z-index:35!important;
+}
+body.index-open #counter{display:none!important}
+
+/* Paso a paso: zona limpia, sin instrucciones; botones solo abajo */
+.slide .stepbox{
+  display:block!important;
+  width:100%!important;
+  min-height:300px!important;
+  margin:12px 0 0!important;
+  padding:12px 16px!important;
+  border-radius:18px!important;
+  background:#f8fbff!important;
+  border-left:8px solid var(--blue)!important;
+  box-shadow:0 7px 22px #1d376a1f!important;
+  overflow:hidden!important;
+}
+.slide .stepbox:empty{background:#f8fbff!important}
+.slide .step-history-item{
+  display:block!important;
+  opacity:1!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+@media(max-height:800px){
+ #counter{font-size:17px!important;bottom:19px!important}
+ .slide .stepbox{min-height:240px!important;margin-top:8px!important;padding:8px 12px!important}
+}
+</style>
+
+
+<style id="correcciones-contenido-v10">
+/* Tipografía matemática coherente en todo el tema */
+.bigmath,.formula-line,.frac,.frac .top,.frac .bottom{
+  font-family:Inter,Segoe UI,Arial,sans-serif!important;
+  font-weight:900!important;
+}
+.frac{
+  display:inline-flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  vertical-align:middle!important;
+  line-height:1!important;
+  margin:0 .12em!important;
+  font-size:1em!important;
+}
+.frac .top,.frac .bottom{
+  display:block!important;
+  width:100%!important;
+  text-align:center!important;
+  font-size:1em!important;
+  line-height:1.05!important;
+  padding:.04em .18em!important;
+}
+.frac .top{border-bottom:3px solid currentColor!important}
+.formula-card{
+  display:grid;place-items:center;
+  min-height:180px;margin:8px 0 14px;
+  background:#eef5ff;border-left:8px solid var(--blue);border-radius:18px;
+}
+.formula-line{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  flex-wrap:wrap!important;gap:.12em!important;
+  font-size:clamp(34px,3.5vw,52px)!important;line-height:1.05!important;
+}
+.formula-frac{font-size:1em!important}
+.smallformula{font-size:clamp(27px,2.6vw,40px)!important}
+.fvar{color:var(--blue)!important}.fop{color:var(--purple)!important}
+.large-text,.large-text p{font-size:clamp(25px,2.1vw,32px)!important;line-height:1.14!important}
+
+/* Diapo 6 */
+.rootline{position:relative;height:115px;margin:14px 4% 6px}
+.rootline:before{content:"";position:absolute;left:4%;right:4%;top:58px;height:5px;background:var(--blue);border-radius:4px}
+.rootline:after{content:"";position:absolute;right:3%;top:49px;border-left:18px solid var(--blue);border-top:11px solid transparent;border-bottom:11px solid transparent}
+.rlab{position:absolute;top:70px;font-size:26px;font-weight:900}.r3{left:12%}.r4{right:11%}
+.rpoint{position:absolute;left:78%;top:47px;width:24px;height:24px;border-radius:50%;background:var(--red);transform:translateX(-50%)}
+.rtext{position:absolute;left:78%;top:5px;transform:translateX(-50%);font-size:25px;font-weight:950;color:var(--red)}
+
+/* Diapo 26 */
+.interval-line{position:relative;height:125px;margin:12px 5% 0}
+.interval-line:before{content:"";position:absolute;left:3%;right:3%;top:58px;height:4px;background:#64748b}
+.ival{position:absolute;top:76px;font-size:24px;font-weight:900}
+.i1{left:7%}.i2{left:25%}.i3{left:49%}.i4{left:73%}.i5{right:6%}
+.iseg{position:absolute;left:27%;width:48%;top:51px;height:18px;background:#66b5ff;border-radius:9px}
+.iopen,.iclosed{position:absolute;top:45px;width:30px;height:30px;border-radius:50%;transform:translateX(-50%);z-index:2}
+.iopen{left:27%;background:white;border:6px solid var(--blue)}
+.iclosed{left:75%;background:var(--blue);border:5px solid var(--blue)}
+
+@media(max-height:800px){
+ .formula-card{min-height:135px;margin:5px 0 8px}
+ .formula-line{font-size:34px!important}
+ .smallformula{font-size:28px!important}
+ .large-text,.large-text p{font-size:23px!important}
+ .rootline{height:90px;margin-top:6px}.rootline:before{top:45px}.rootline:after{top:36px}
+ .rpoint{top:34px}.rlab{top:57px}.rtext{top:0}
+ .interval-line{height:95px;margin-top:5px}.interval-line:before{top:43px}.iseg{top:36px}.iopen,.iclosed{top:30px}.ival{top:59px}
+}
+</style>
+
+
+<style id="legibilidad-aula-v11">
+/* Tamaño mínimo general de contenido proyectado */
+.slide p,
+.slide li,
+.slide td,
+.slide th,
+.slide .schema-item,
+.slide .exercise-list,
+.slide .exercise-list p,
+.slide .theory,
+.slide .solution,
+.slide .yellow,
+.slide .callout{
+  font-size:clamp(22px,1.75vw,28px)!important;
+  line-height:1.13!important;
+}
+.slide h3{
+  font-size:clamp(27px,2.25vw,35px)!important;
+  line-height:1.05!important;
+}
+.slide .bigmath{
+  font-size:clamp(30px,2.8vw,43px)!important;
+  line-height:1.08!important;
+}
+.slide .formula-line{
+  font-size:clamp(31px,3vw,46px)!important;
+}
+.slide .compact-formula{
+  font-size:clamp(29px,2.65vw,41px)!important;
+  margin:12px 0!important;
+}
+.slide sub,.slide sup{
+  font-size:.68em!important;
+  line-height:0!important;
+}
+.fracgen-row .card{
+  padding:10px 13px!important;
+}
+.fracgen-row p{
+  font-size:clamp(20px,1.55vw,25px)!important;
+}
+.error-example{
+  margin-top:12px!important;
+}
+.error-example p{
+  margin:4px 0!important;
+}
+
+/* Elementos que antes podían quedarse demasiado pequeños */
+.slide .dec-table,
+.slide .dec-table th,
+.slide .dec-table td{
+  font-size:clamp(20px,1.55vw,25px)!important;
+}
+.slide .quiz-options button{
+  font-size:clamp(20px,1.55vw,25px)!important;
+}
+.slide .rlab,.slide .rtext,.slide .ival{
+  font-size:clamp(22px,1.7vw,27px)!important;
+}
+
+/* Pantalla de poca altura: compactar cajas y márgenes antes que la letra */
+@media(max-height:800px){
+ .slide p,.slide li,.slide td,.slide th,.slide .schema-item,
+ .slide .exercise-list,.slide .exercise-list p,.slide .theory,
+ .slide .solution,.slide .yellow,.slide .callout{
+   font-size:20px!important;line-height:1.07!important;
+ }
+ .slide h3{font-size:25px!important}
+ .slide .bigmath{font-size:29px!important}
+ .slide .formula-line{font-size:30px!important}
+ .slide .compact-formula{font-size:28px!important;margin:6px 0!important}
+ .fracgen-row .card{padding:6px 9px!important}
+ .fracgen-row p{font-size:18.5px!important}
+ .error-example{margin-top:7px!important}
+}
+</style>
+
+
+<style id="periodico-mixto-v12">
+.mixto-row .card{
+  padding:8px 11px!important;
+}
+.mixto-row p{
+  font-size:clamp(19px,1.5vw,24px)!important;
+  line-height:1.08!important;
+  margin:4px 0!important;
+}
+.mixto-row .bigmath{
+  font-size:clamp(27px,2.35vw,37px)!important;
+  margin:5px 0!important;
+}
+.regla-mixto{
+  margin-top:9px!important;
+  padding:8px 13px!important;
+}
+.regla-mixto > strong{
+  font-size:clamp(22px,1.8vw,28px)!important;
+}
+.regla-formula{
+  margin-top:5px!important;
+  font-size:clamp(17px,1.38vw,22px)!important;
+  line-height:1.05!important;
+}
+.regla-formula .frac{
+  max-width:100%!important;
+}
+.regla-formula .frac .top,
+.regla-formula .frac .bottom{
+  white-space:normal!important;
+  padding:4px 8px!important;
+}
+@media(max-height:800px){
+ .mixto-row p{font-size:17.5px!important}
+ .mixto-row .bigmath{font-size:25px!important}
+ .regla-mixto{margin-top:5px!important;padding:5px 9px!important}
+ .regla-mixto > strong{font-size:20px!important}
+ .regla-formula{font-size:15.5px!important}
+}
+</style>
+
+
+<style id="regla-directa-puro-v13">
+.regla-puro{
+  margin-top:9px!important;
+  padding:8px 13px!important;
+}
+.regla-puro > strong{
+  font-size:clamp(22px,1.8vw,28px)!important;
+}
+.regla-puro-formula{
+  margin-top:4px!important;
+  font-size:clamp(18px,1.42vw,23px)!important;
+  line-height:1.05!important;
+}
+.regla-puro-formula .frac{
+  max-width:100%!important;
+}
+.regla-puro-formula .frac .top,
+.regla-puro-formula .frac .bottom{
+  white-space:normal!important;
+  padding:4px 8px!important;
+}
+.regla-puro-ejemplo{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex-wrap:wrap!important;
+  gap:.25em!important;
+  margin-top:6px!important;
+  font-size:clamp(22px,1.8vw,29px)!important;
+  font-weight:900!important;
+}
+@media(max-height:800px){
+ .regla-puro{margin-top:5px!important;padding:5px 9px!important}
+ .regla-puro > strong{font-size:20px!important}
+ .regla-puro-formula{font-size:16px!important}
+ .regla-puro-ejemplo{font-size:20px!important;margin-top:3px!important}
+}
+</style>
+
 </head>
 <body>
-  <main class="screen">
-    <section class="card">
-      <div class="icon">🚧</div>
-      <h1>Tema en construcción</h1>
-      <p class="subtitle">Este contenido todavía no está disponible. Estamos preparando el tema para que puedas consultarlo próximamente.</p>
-      <div class="status">Próximamente</div>
-      <div class="footer">Matemáticas · Material del curso</div>
-    </section>
-  </main>
-</body>
-</html>
+<section class="slide">
+
+<h1>Números reales. Proporcionalidad</h1>
+<p class="lead">Presentación interactiva para <strong>7 sesiones de 50 minutos</strong>. Teoría, procedimientos paso a paso, ejercicios del solucionario y soluciones.</p>
+<div class="g3" style="margin-top:28px">
+<div class="card blue"><h3>Azul</h3><p>Teoría y conceptos.</p></div>
+<div class="card yellow"><h3>Amarillo</h3><p>Ahora tú / recuerda.</p></div>
+<div class="card green"><h3>Verde</h3><p>Soluciones y comprobaciones.</p></div>
+</div>
+
+</section>
+<section class="slide">
+<div class="k">MAPA DEL TEMA</div><h2>¿Qué vamos a trabajar?</h2>
+<div class="g2">
+<div class="card blue"><h3>01 · Números reales</h3><p>Racionales · irracionales · conjuntos numéricos · orden.</p></div>
+<div class="card blue"><h3>02 · Recta real</h3><p>Representación de números racionales e irracionales.</p></div>
+<div class="card blue"><h3>03 · Aproximaciones</h3><p>Truncamiento · redondeo · error absoluto · error relativo.</p></div>
+<div class="card blue"><h3>04 · Intervalos</h3><p>Notación · representación · unión · intersección.</p></div>
+<div class="card blue"><h3>05 · Proporcionalidad</h3><p>Directa · inversa · problemas de varias magnitudes.</p></div>
+<div class="card blue"><h3>06 · Porcentajes</h3><p>Aumentos · disminuciones · porcentajes sucesivos.</p></div>
+</div>
+</section>
+<!-- SESIÓN 1 -->
+<section class="slide"><div class="session"><div class="session-num">1</div><div><div class="k">SESIÓN 1</div><h1>Números racionales e irracionales</h1><p class="lead">Conjuntos numéricos · tipos de decimales · clasificación de números reales.</p></div></div></section>
+<section class="slide">
+<div class="k">1 · CONJUNTOS NUMÉRICOS</div><h2>Cómo se organizan los números reales</h2>
+<div class="g2">
+<div class="card blue sets">
+<div class="setR">ℝ · Reales</div><div class="setQ">ℚ · Racionales</div><div class="setZ">ℤ · Enteros</div><div class="setN">ℕ · Naturales</div>
+<div class="irrat">Irracionales<br/>√2 · π · √5</div>
+</div>
+<div class="card blue">
+<p><strong>Naturales:</strong> 0, 1, 2, 3, …</p>
+<p><strong>Enteros:</strong> …, −2, −1, 0, 1, 2, …</p>
+<p><strong>Racionales:</strong> pueden escribirse como una fracción <span class="frac"><span class="top">a</span><span class="bottom">b</span></span>, con b ≠ 0.</p>
+<p><strong>Irracionales:</strong> tienen infinitas cifras decimales no periódicas.</p>
+</div>
+</div>
+</section>
+<section class="slide">
+<div class="k">1 · RACIONALES</div><h2>Cómo reconocer un número racional</h2>
+<div class="g3">
+<div class="card green"><h3>ENTERO</h3><div class="bigmath">−5 = <span class="frac"><span class="top">−5</span><span class="bottom">1</span></span></div></div>
+<div class="card green"><h3>DECIMAL EXACTO</h3><div class="bigmath">0,075 = <span class="frac"><span class="top">3</span><span class="bottom">40</span></span></div></div>
+<div class="card green"><h3>DECIMAL PERIÓDICO</h3><div class="bigmath">3,666… = <span class="frac"><span class="top">11</span><span class="bottom">3</span></span></div></div>
+</div>
+<div class="callout">Entero, decimal exacto o decimal periódico ⇒ número racional.</div>
+</section>
+<section class="slide">
+<div class="k">1 · IRRACIONALES</div><h2>Raíces cuadradas: situar un irracional</h2>
+<div class="g2">
+<div class="card blue">
+<h3>1. Buscamos cuadrados perfectos</h3>
+<div class="bigmath">9 &lt; 15 &lt; 16</div>
+<div class="bigmath">√9 &lt; √15 &lt; √16</div>
+<div class="bigmath">3 &lt; √15 &lt; 4</div>
+</div>
+<div class="card green">
+<h3>2. Aproximamos</h3>
+<div class="bigmath">√15 ≈ 3,873</div>
+<p>Por tanto, está entre 3 y 4 y más cerca de 4.</p>
+</div>
+</div>
+<div class="rootline">
+<span class="rlab r3">3</span><span class="rlab r4">4</span>
+<span class="rpoint"></span><span class="rtext">√15 ≈ 3,873</span>
+</div>
+<div class="yellow"><strong>Idea clave:</strong> si el radicando no es un cuadrado perfecto, la raíz puede ser irracional. Para situarla, buscamos primero entre qué cuadrados perfectos está.</div>
+</section>
+<section class="slide">
+<div class="k">1 · CLASIFICAR</div><h2>Procedimiento paso a paso</h2>
+<p class="lead">Clasifica el número <strong>21,46363636…</strong>.</p>
+
+
+
+<div class="stepbox" id="classStep"></div>
+</section>
+<section class="slide">
+<div class="k">AHORA TÚ</div><h2>Ejercicios del solucionario</h2>
+<div class="exercise-list full">
+<p><strong>38.</strong> Clasifica estos números racionales indicando si son enteros, decimales exactos, periódicos puros o periódicos mixtos:</p>
+<p>a) 2,333…    b) 2,345    c) 2,435555…    d) −45    e) 8,919191…    f) 57,4323232…</p>
+<p><strong>47.</strong> Indica si cada uno de estos números es <b>racional</b> o <b>irracional</b>:</p>
+<p>a) 0,75    b) √7    c) −3    d) π    e) 2,454545…    f) √11.</p>
+<p><strong>61.</strong> Indica si son verdaderas o falsas y <b>razona</b> cada respuesta:</p>
+<p>a) Todos los números decimales se pueden escribir en forma de fracción.   b) Todos los números reales son racionales.   c) Un número irracional es real.</p>
+<p>d) Existen números enteros que son irracionales.   e) Hay números reales que son racionales.   f) Cualquier número decimal es racional.</p>
+<p>g) Un número racional es entero.   h) Los números irracionales tienen infinitas cifras decimales.   i) Todos los números racionales tienen infinitas cifras decimales que se repiten.</p>
+</div>
+<div class="theory-schema">
+<h3>Esquema de teoría que vas a necesitar</h3>
+<div class="schema-grid">
+<div class="schema-item"><strong>Racionales</strong>Enteros, decimales exactos y decimales periódicos pueden escribirse como fracción.</div>
+<div class="schema-item"><strong>Irracionales</strong>Infinitas cifras decimales no periódicas. Ejemplos: √2, √5, π.</div>
+<div class="schema-item"><strong>Conjuntos</strong>ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ. Clasifica siempre en el conjunto más pequeño posible.</div>
+</div>
+</div>
+</section>
+<section class="slide">
+<div class="k" style="color:var(--green)">SOLUCIONES</div><h2 style="color:var(--green)">Ejercicios 38, 47 y 61</h2>
+<div class="solution">
+<p><strong>38.</strong> a) periódico puro · b) decimal exacto · c) periódico mixto · d) entero negativo · e) periódico puro · f) periódico mixto.</p>
+<p><strong>47.</strong> a) racional · b) irracional · c) racional · d) irracional · e) racional · f) irracional.</p>
+<p><strong>61.</strong> a) F · b) F · c) V · d) F · e) V · f) F · g) F · h) V · i) F.</p>
+</div>
+</section>
+<!-- SESIÓN 2 -->
+<section class="slide"><div class="session"><div class="session-num">2</div><div><div class="k">SESIÓN 2</div><h1>Orden y representación en la recta real</h1><p class="lead">Comparar números reales · aproximar raíces · representar irracionales.</p></div></div></section>
+<section class="slide">
+<div class="k">2 · ORDEN</div><h2>Comparar números reales</h2>
+<div class="g2">
+<div class="card blue"><h3>Racionales</h3><p>Podemos comparar fracciones pasando a decimal o usando denominador común.</p></div>
+<div class="card blue"><h3>Irracionales</h3><p>Podemos obtener una aproximación decimal suficiente para situarlos.</p></div>
+</div>
+<div class="bigmath">√6 ≈ 2,449    √7 ≈ 2,646    √8 ≈ 2,828</div>
+</section>
+<section class="slide">
+<div class="k">2 · FRACCIÓN GENERATRIZ</div>
+<h2>Decimal periódico puro → fracción</h2>
+<div class="g2">
+<div class="card blue">
+<h3>Ejemplo: 0,272727…</h3>
+<div class="bigmath">x = 0,272727…</div>
+<p>El período es <strong>27</strong> y tiene <strong>2 cifras</strong>.</p>
+</div>
+<div class="card purple">
+<h3>Objetivo</h3>
+<p>Convertir el decimal periódico en una fracción haciendo desaparecer la parte decimal periódica.</p>
+<div class="bigmath">0,272727… = ?</div>
+</div>
+</div>
+<div class="g3 fracgen-row">
+<div class="card orange"><h3>1</h3><p>Multiplicamos por <strong>100</strong> porque el período tiene 2 cifras.</p><div class="bigmath">100x = 27,272727…</div></div>
+<div class="card red"><h3>2</h3><p>Restamos las dos igualdades. La parte periódica desaparece.</p><div class="bigmath">100x − x = 27</div><div class="bigmath">99x = 27</div></div>
+<div class="card green"><h3>3</h3><p>Despejamos y simplificamos.</p><div class="bigmath">x = 27/99 = 3/11</div></div>
+</div>
+
+<div class="yellow regla-puro">
+<strong>Regla directa:</strong>
+<div class="formula-line regla-puro-formula">
+<span class="frac">
+<span class="top">número sin coma hasta incluir un período − parte entera</span>
+<span class="bottom">tantos 9 como cifras tenga el período</span>
+</span>
+</div>
+<div class="regla-puro-ejemplo">
+En el ejemplo:
+<span class="frac">
+<span class="top">27 − 0</span>
+<span class="bottom">99</span>
+</span>
+=
+<span class="frac">
+<span class="top">27</span>
+<span class="bottom">99</span>
+</span>
+=
+<span class="frac">
+<span class="top">3</span>
+<span class="bottom">11</span>
+</span>
+</div>
+</div>
+
+</section>
+<section class="slide">
+<div class="k">2 · FRACCIÓN GENERATRIZ</div>
+<h2>Decimal periódico mixto → fracción</h2>
+
+<div class="g2">
+  <div class="card blue">
+    <h3>Ejemplo: 1,23333…</h3>
+    <div class="bigmath">x = 1,23333…</div>
+    <p><strong>Anteperíodo:</strong> 2 &nbsp;&nbsp; <strong>Período:</strong> 3</p>
+  </div>
+
+  <div class="card purple">
+    <h3>¿Qué tenemos que conseguir?</h3>
+    <p>Primero desplazamos la coma hasta que el período empiece justo después de ella.</p>
+    <p>Después hacemos coincidir las partes periódicas para poder restarlas.</p>
+  </div>
+</div>
+
+<div class="g3 mixto-row">
+  <div class="card orange">
+    <h3>1</h3>
+    <p>Hay <strong>1 cifra</strong> en el anteperíodo.</p>
+    <p>Multiplicamos por 10:</p>
+    <div class="bigmath">10x = 12,3333…</div>
+  </div>
+
+  <div class="card red">
+    <h3>2</h3>
+    <p>El período tiene <strong>1 cifra</strong>.</p>
+    <p>Multiplicamos otra vez por 10:</p>
+    <div class="bigmath">100x = 123,3333…</div>
+  </div>
+
+  <div class="card green">
+    <h3>3</h3>
+    <p>Restamos para eliminar el período:</p>
+    <div class="bigmath">100x − 10x = 123 − 12</div>
+    <div class="bigmath">90x = 111</div>
+    <div class="bigmath">x = 111/90 = 37/30</div>
+  </div>
+</div>
+
+<div class="yellow regla-mixto">
+<strong>Regla directa:</strong>
+<div class="formula-line regla-formula">
+<span class="frac">
+  <span class="top">número sin coma hasta incluir un período − parte no periódica sin coma</span>
+  <span class="bottom">tantos 9 como cifras periódicas y tantos 0 como cifras del anteperíodo</span>
+</span>
+</div>
+</div>
+</section>
+<section class="slide">
+<div class="k">2 · REPRESENTAR UNA RAÍZ</div><h2>Con el teorema de Pitágoras</h2>
+<p class="lead">Ejemplo: representar √50.</p>
+
+
+
+<div class="stepbox" id="rootStep"></div>
+</section>
+<section class="slide">
+<div class="k">2 · ENTRE DOS RACIONALES</div><h2>Siempre caben infinitos números reales</h2>
+<div class="g2">
+<div class="card blue"><h3>Racionales</h3><p>Entre dos racionales distintos existen infinitos racionales.</p></div>
+<div class="card blue"><h3>Irracionales</h3><p>También podemos encontrar infinitos irracionales entre dos racionales.</p></div>
+</div>
+<div class="callout">La recta real no tiene “huecos”.</div>
+</section>
+<section class="slide">
+<div class="k">AHORA TÚ</div><h2>Ejercicios del solucionario</h2>
+<div class="exercise-list full">
+<p><strong>49.</strong> Obtén una aproximación decimal con cuatro cifras decimales y representa aproximadamente en la recta real:</p>
+<p>a) √3    b) √6    c) √38    d) 1 + √37.</p>
+<p><strong>54.</strong> Escribe dos números racionales entre los que quede comprendido cada número irracional:</p>
+<p>a) <span class="frac"><span class="top">π</span><span class="bottom">2</span></span>    b) √2    c) √<span class="frac"><span class="top">7</span><span class="bottom">3</span></span>.</p>
+<p><strong>60.</strong> Ordena estos números con su letra, primero de menor a mayor y después de mayor a menor. Las letras obtenidas forman dos palabras bifrontes:</p>
+<p>A₁: √2    P: 1,5    A₂: √3    R: 2    T: √5    A₃: 3.</p>
+</div>
+<div class="theory-schema">
+<h3>Esquema de teoría que vas a necesitar</h3>
+<div class="schema-grid">
+<div class="schema-item"><strong>Comparar</strong>Aproxima raíces si hace falta y sitúa primero entre dos enteros consecutivos.</div>
+<div class="schema-item"><strong>Representar raíces</strong>Usa Pitágoras para construir una longitud √n y trasladarla con compás a la recta.</div>
+<div class="schema-item"><strong>Entre dos reales</strong>Entre dos racionales distintos hay infinitos racionales e infinitos irracionales.</div>
+</div>
+</div>
+</section>
+<!-- SESIÓN 3 -->
+<section class="slide">
+<div class="k" style="color:var(--green)">SOLUCIONES</div><h2 style="color:var(--green)">Ejercicios 49, 54 y 60</h2>
+<div class="solution">
+<p><strong>49.</strong> √3 ≈ 1,7321 · √6 ≈ 2,4495 · √38 ≈ 6,1644 · 1 + √37 ≈ 7,0828. Se sitúan en la recta usando esas aproximaciones.</p>
+<p><strong>54.</strong> Respuesta abierta. Ejemplos: a) <span class="frac"><span class="top">π</span><span class="bottom">2</span></span> está entre 1,5 periódico y 1,6 · b) √2 está entre 1,2 y 1,6 · c) √<span class="frac"><span class="top">7</span><span class="bottom">3</span></span> está entre 1,5 periódico y 1,53 periódico.</p>
+<p><strong>60.</strong> De menor a mayor se obtiene <strong>APARTA</strong>; de mayor a menor, <strong>ATRAPA</strong>.</p>
+</div>
+</section>
+<section class="slide"><div class="session"><div class="session-num">3</div><div><div class="k">SESIÓN 3</div><h1>Aproximaciones y errores</h1><p class="lead">Truncamiento · redondeo · error absoluto · error relativo.</p></div></div></section>
+<section class="slide">
+<div class="k">3 · APROXIMAR</div><h2>Truncamiento y redondeo</h2>
+<div class="g2">
+<div class="card blue"><h3>TRUNCAMIENTO</h3><p>Cortamos las cifras a partir del orden pedido.</p><div class="bigmath">24,1587 → 24,15</div></div>
+<div class="card blue"><h3>REDONDEO</h3><p>Miramos la cifra siguiente. Si es 5 o mayor, aumentamos una unidad.</p><div class="bigmath">24,1587 → 24,16</div></div>
+</div>
+</section>
+<section class="slide">
+<div class="k">3 · ERROR ABSOLUTO</div><h2>Cuánto nos alejamos del valor real</h2>
+<div class="bigmath">E<sub>a</sub> = |valor real − valor aproximado|</div>
+<div class="card green"><div class="bigmath">|3,125 − 3,13| = 0,005</div></div>
+</section>
+<section class="slide">
+<div class="k">3 · APROXIMACIONES</div>
+<h2>Error absoluto y error relativo</h2>
+<div class="g2">
+<div class="card blue">
+<h3>Error absoluto</h3>
+<p>Indica <strong>cuánto nos hemos alejado</strong> del valor exacto.</p>
+<div class="formula-line compact-formula">E<sub>a</sub> = |V<sub>real</sub> − V<sub>aprox</sub>|</div>
+</div>
+<div class="card purple">
+<h3>Error relativo</h3>
+<p>Compara el error con el <strong>tamaño del valor real</strong>.</p>
+<div class="formula-line compact-formula">E<sub>r</sub> = E<sub>a</sub> / |V<sub>real</sub>|</div>
+</div>
+</div>
+<div class="card green error-example">
+<h3>Ejemplo: aproximamos 12,347 por 12,35</h3>
+<div class="g2">
+<div><div class="bigmath">E<sub>a</sub> = |12,347 − 12,35| = 0,003</div></div>
+<div><div class="bigmath">E<sub>r</sub> = 0,003 / 12,347 ≈ 0,000243</div><p>En porcentaje: <strong>≈ 0,0243%</strong></p></div>
+</div>
+</div>
+<div class="yellow"><strong>Recuerda:</strong> el error absoluto conserva las unidades; el error relativo no tiene unidades y permite comparar aproximaciones.</div>
+</section>
+<section class="slide">
+<div class="k">3 · PROCEDIMIENTO</div><h2>Redondear y medir el error</h2>
+<p class="lead">Redondea 10,4798 a las milésimas y calcula el error absoluto.</p>
+
+
+
+<div class="stepbox" id="errStep"></div>
+</section>
+<section class="slide">
+<div class="k">AHORA TÚ</div><h2>Ejercicios del solucionario</h2>
+<div class="exercise-list full">
+<p><strong>71.</strong> Compara dos formas de aproximar cada operación: <b>(A)</b> efectuar primero la operación y redondear después; <b>(B)</b> redondear previamente los datos a una cifra decimal y operar. Calcula el error absoluto en ambos casos y decide qué método es mejor:</p>
+<p>a) 4,37 · 2,64    b) 18,93 + 15,46    c) 13,5 · 2,7    d) 40,92 : 5,3.</p>
+<p><strong>73.</strong> Obtén el <b>error absoluto</b> y el <b>error relativo</b> cometidos al redondear y al truncar:</p>
+<p>a) 10,4798 a las milésimas.    b) √12 a las diezmilésimas.    c) <span class="frac"><span class="top">2</span><span class="bottom">3</span></span> a las décimas.    d) 3,125 a las milésimas.</p>
+<p><strong>74.</strong> Aproxima el número <b>8,9761</b> de forma que el error absoluto sea menor que <b>0,001</b>.</p>
+</div>
+<div class="theory-schema">
+<h3>Esquema de teoría que vas a necesitar</h3>
+<div class="schema-grid">
+<div class="schema-item"><strong>Truncamiento</strong>Cortamos las cifras a partir del orden pedido.</div>
+<div class="schema-item"><strong>Redondeo</strong>Miramos la cifra siguiente: 0–4 se mantiene; 5–9 aumenta una unidad.</div>
+<div class="schema-item"><strong>Errores</strong>E<sub>a</sub>=|real−aprox.|   y   E<sub>r</sub>=E<sub>a</sub>/|real|.</div>
+</div>
+</div>
+</section>
+<!-- SESIÓN 4 -->
+<section class="slide">
+<div class="k" style="color:var(--green)">SOLUCIONES</div><h2 style="color:var(--green)">Ejercicios 71, 73 y 74</h2>
+<div class="solution">
+<p><strong>71.</strong> a) Es mejor redondear el resultado. b) Se comete el mismo error. c) Es mejor redondear los factores. d) Es mejor redondear los factores.</p>
+<p><strong>73.</strong> a) 10,4798 → redondeo 10,480, E<sub>a</sub>=0,0002; truncamiento 10,479, E<sub>a</sub>=0,0008. b) √12 → 3,4641 tanto por redondeo como por truncamiento. c) <span class="frac"><span class="top">2</span><span class="bottom">3</span></span> → 0,7 por redondeo y 0,6 por truncamiento. d) 3,125 no cambia: error 0.</p>
+<p><strong>74.</strong> Para que E<sub>a</sub>&lt;0,001, se aproxima 8,9761 a las milésimas: <strong>8,976</strong>.</p>
+</div>
+</section>
+<section class="slide"><div class="session"><div class="session-num">4</div><div><div class="k">SESIÓN 4</div><h1>Intervalos de números reales</h1><p class="lead">Notación · representación · unión · intersección · valor absoluto.</p></div></div></section>
+<section class="slide">
+<div class="k">4 · INTERVALOS</div><h2>Paréntesis y corchetes</h2>
+<div class="g2">
+<div class="card blue"><h3>EXTREMO NO INCLUIDO</h3><div class="bigmath">(a, b)</div><p>Se utiliza paréntesis.</p></div>
+<div class="card blue"><h3>EXTREMO INCLUIDO</h3><div class="bigmath">[a, b]</div><p>Se utiliza corchete.</p></div>
+</div>
+<div class="callout">Con +∞ y −∞ siempre se escribe paréntesis.</div>
+</section>
+<section class="slide">
+<div class="k">4 · DE DESIGUALDAD A INTERVALO</div><h2>Ejemplo: −3 &lt; x ≤ 3</h2>
+<div class="g2">
+<div class="card blue">
+<h3>Leemos la desigualdad</h3>
+<p><strong>x es mayor que −3</strong>: −3 no se incluye → punto abierto.</p>
+<p><strong>x es menor o igual que 3</strong>: 3 sí se incluye → punto cerrado.</p>
+</div>
+<div class="card green">
+<h3>Escribimos el intervalo</h3>
+<div class="bigmath">(−3, 3]</div>
+<p>Paréntesis en −3 y corchete en 3.</p>
+</div>
+</div>
+<div class="interval-line">
+<span class="ival i1">−4</span><span class="ival i2">−3</span><span class="ival i3">0</span><span class="ival i4">3</span><span class="ival i5">4</span>
+<span class="iseg"></span><span class="iopen"></span><span class="iclosed"></span>
+</div>
+</section>
+<section class="slide">
+<div class="k">4 · OPERACIONES</div><h2>Unión e intersección</h2>
+<div class="g2">
+<div class="card blue"><h3>UNIÓN</h3><p>Todo lo que pertenece a uno o al otro intervalo.</p><div class="bigmath">(−5,1] ∪ [0,2] = (−5,2]</div></div>
+<div class="card blue"><h3>INTERSECCIÓN</h3><p>Solo lo que pertenece a los dos.</p><div class="bigmath">(−5,1] ∩ [0,2] = [0,1]</div></div>
+</div>
+</section>
+<section class="slide">
+<div class="k">4 · VALOR ABSOLUTO</div><h2>Interpretarlo como distancia al 0</h2>
+
+
+
+<div class="stepbox" id="absStep"></div>
+</section>
+<section class="slide">
+<div class="k">AHORA TÚ</div><h2>Ejercicios del solucionario</h2>
+<div class="exercise-list full">
+<p><strong>78.</strong> Expresa mediante intervalos estas situaciones:</p>
+<p>a) La capacidad de los envases es menor que 5 ℓ.    b) La altura de las cortinas debe ser menor o igual que 2,8 m.</p>
+<p>c) Una cantidad debe ser mayor que 40.    d) Una cantidad puede tomar cualquier valor desde 30 hasta 60, incluidos ambos extremos.</p>
+<p><strong>85.</strong> Sean los intervalos <b>A = (−3, 3]</b>, <b>B = (−2, 0]</b> y <b>C = [2, 5)</b>. Halla:</p>
+<p>a) A ∪ B    b) A ∪ B ∪ C    c) A ∩ C    d) A ∩ B ∩ C.</p>
+<p><strong>88.</strong> Expresa como intervalo o conjunto solución:</p>
+<p>a) |x| &lt; 5    b) |x| &lt; −5    c) |x| ≥ −5.</p>
+</div>
+<div class="theory-schema">
+<h3>Esquema de teoría que vas a necesitar</h3>
+<div class="schema-grid">
+<div class="schema-item"><strong>Extremos</strong>Paréntesis = extremo no incluido. Corchete = extremo incluido.</div>
+<div class="schema-item"><strong>Unión / intersección</strong>Unión: todo lo de ambos intervalos. Intersección: solo la parte común.</div>
+<div class="schema-item"><strong>Valor absoluto</strong>|x|&lt;a significa que la distancia de x al 0 es menor que a.</div>
+</div>
+</div>
+</section>
+<!-- SESIÓN 5 -->
+<section class="slide">
+<div class="k" style="color:var(--green)">SOLUCIONES</div><h2 style="color:var(--green)">Ejercicios 78, 85 y 88</h2>
+<div class="solution">
+<p><strong>78.</strong> a) [0,5) · b) [0,2,8] · c) (40,+∞) · d) [30,60].</p>
+<p><strong>85.</strong> A=(−3,3], B=(−2,0], C=[2,5). a) A∪B=(−3,3] · b) A∪B∪C=(−3,5) · c) A∩C=[2,3] · d) A∩B∩C=∅.</p>
+<p><strong>88.</strong> a) |x|&lt;5 ⇒ (−5,5) · b) |x|&lt;−5 ⇒ ∅ · c) |x|≥−5 ⇒ ℝ.</p>
+</div>
+</section>
+<section class="slide"><div class="session"><div class="session-num">5</div><div><div class="k">SESIÓN 5</div><h1>Proporcionalidad directa e inversa</h1><p class="lead">Reconocer la relación · regla de tres · problemas de varias magnitudes.</p></div></div></section>
+<section class="slide">
+<div class="k">5 · DIRECTA</div><h2>Proporcionalidad directa</h2>
+<div class="g2">
+<div class="card blue">
+<h3>¿CUÁNDO ES DIRECTA?</h3>
+<p>Dos magnitudes son directamente proporcionales cuando, al multiplicar una por un número, la otra también queda multiplicada por ese mismo número.</p>
+<p>Por ejemplo: si duplicamos el número de personas, necesitamos el doble de comida.</p>
+<div class="callout">En una proporcionalidad directa, el <strong>cociente</strong> entre valores correspondientes es constante.</div>
+<div class="bigmath"><span class="frac"><span class="top">y</span><span class="bottom">x</span></span> = k</div>
+</div>
+<div class="card yellow">
+<h3>EJEMPLO</h3>
+<p>Para 6 personas se necesitan 240 g de salmón. ¿Cuánto hará falta para 8 personas?</p>
+<table class="dec-table">
+<tr><th>Personas</th><td>6</td><td>8</td></tr>
+<tr><th>Salmón (g)</th><td>240</td><td>x</td></tr>
+</table>
+<p>Planteamos la igualdad de razones:</p>
+<div class="bigmath"><span class="frac"><span class="top">240</span><span class="bottom">6</span></span> = <span class="frac"><span class="top">x</span><span class="bottom">8</span></span></div>
+<div class="bigmath">x = <span class="frac"><span class="top">240 · 8</span><span class="bottom">6</span></span> = 320 g</div>
+</div>
+</div>
+</section>
+<section class="slide">
+<div class="k">5 · INVERSA</div><h2>Proporcionalidad inversa</h2>
+<div class="g2">
+<div class="card blue">
+<h3>¿CUÁNDO ES INVERSA?</h3>
+<p>Dos magnitudes son inversamente proporcionales cuando, al multiplicar una por un número, la otra queda dividida por ese mismo número.</p>
+<p>Por ejemplo: si hay más personas consumiendo la misma comida, esta durará menos días.</p>
+<div class="callout">En una proporcionalidad inversa, el <strong>producto</strong> de los valores correspondientes es constante.</div>
+<div class="bigmath">x · y = k</div>
+</div>
+<div class="card yellow">
+<h3>EJEMPLO</h3>
+<p>Hay comida para 18 huéspedes durante 12 días. Si pasan a ser 24 huéspedes, ¿cuántos días durará?</p>
+<table class="dec-table">
+<tr><th>Huéspedes</th><td>18</td><td>24</td></tr>
+<tr><th>Días</th><td>12</td><td>x</td></tr>
+</table>
+<p>Al aumentar los huéspedes, disminuyen los días, por tanto es inversa:</p>
+<div class="bigmath">18 · 12 = 24 · x</div>
+<div class="bigmath">x = <span class="frac"><span class="top">18 · 12</span><span class="bottom">24</span></span> = 9 días</div>
+</div>
+</div>
+</section>
+<section class="slide">
+<div class="k">5 · DECIDIR EL TIPO</div><h2>Antes de hacer cuentas</h2>
+<div class="quiz-options" id="propQuiz">
+<button data-msg="Inversa: más trabajadores, menos días." data-ok="1">Más trabajadores · días para terminar una obra</button>
+<button data-msg="Directa: más kilos, mayor precio total." data-ok="0">Kilos comprados · precio total</button>
+<button data-msg="Inversa: para la misma distancia, más velocidad implica menos tiempo." data-ok="1">Velocidad · tiempo de viaje</button>
+<button data-msg="Directa: más piezas iguales, más coste total." data-ok="0">Número de piezas · coste total</button>
+</div>
+<div class="callout" id="propFeedback" style="margin-top:18px">Pulsa una relación para comprobarla.</div>
+</section>
+<section class="slide">
+<div class="k">5 · PROPORCIONALIDAD COMPUESTA</div><h2>Varias magnitudes a la vez</h2>
+<p class="lead">Una embotelladora produce 1500 cajas en 9 días trabajando 8 horas al día. ¿Cuántos días necesitará para producir 10 000 cajas trabajando 6 horas al día?</p>
+<div class="g2">
+<div class="card blue">
+<h3>1 · Organizamos las magnitudes</h3>
+<table class="dec-table">
+<tr><th>Cajas</th><th>Horas/día</th><th>Días</th></tr>
+<tr><td>1500</td><td>8</td><td>9</td></tr>
+<tr><td>10 000</td><td>6</td><td>x</td></tr>
+</table>
+<p style="margin-top:14px"><strong>Comparamos cada magnitud con los días:</strong></p>
+<p>• Si aumentan las <strong>cajas</strong>, hacen falta más días ⇒ relación <strong>directa</strong>.</p>
+<p>• Si aumentan las <strong>horas de trabajo al día</strong>, hacen falta menos días ⇒ relación <strong>inversa</strong>.</p>
+</div>
+<div class="card yellow">
+<h3>2 · Llegamos al cálculo</h3>
+<p>Partimos de los <strong>9 días</strong> del caso conocido.</p>
+<p>Por las cajas, al ser relación directa, usamos:</p>
+<div class="bigmath"><span class="frac"><span class="top">10 000</span><span class="bottom">1500</span></span></div>
+<p>Por las horas/día, al ser relación inversa, colocamos la razón al revés:</p>
+<div class="bigmath"><span class="frac"><span class="top">8</span><span class="bottom">6</span></span></div>
+<div class="bigmath">x = 9 · <span class="frac"><span class="top">10 000</span><span class="bottom">1500</span></span> · <span class="frac"><span class="top">8</span><span class="bottom">6</span></span></div>
+<div class="solution"><strong>x = 80 días</strong></div>
+</div>
+</div>
+</section>
+<section class="slide">
+<div class="k">AHORA TÚ</div><h2>Ejercicios del solucionario</h2>
+<div class="exercise-list full">
+<p><strong>90.</strong> En una receta para <b>6 personas</b> se necesitan <b>240 g de salmón</b>. Averigua cuánto salmón se necesita para <b>8 personas</b>.</p>
+<p><strong>94.</strong> La dueña de una pensión dispone de comida para alimentar a sus <b>18 huéspedes durante 12 días</b>. Si el número de huéspedes aumenta en <b>6 personas</b>, ¿para cuántos días tendrá comida?</p>
+<p><strong>98.</strong> Si leo <b>15 páginas por hora</b> durante <b>4 horas diarias</b>, tardo <b>10 días</b> en leer un libro. Leyendo <b>12 páginas por hora</b>, quiero tardar <b>20 días</b>. ¿Cuántas horas debo leer al día?</p>
+</div>
+<div class="theory-schema">
+<h3>Esquema de teoría que vas a necesitar</h3>
+<div class="schema-grid">
+<div class="schema-item"><strong>Directa</strong>Al aumentar una magnitud, aumenta la otra. El cociente entre valores correspondientes es constante.</div>
+<div class="schema-item"><strong>Inversa</strong>Al aumentar una magnitud, disminuye la otra. El producto entre valores correspondientes es constante.</div>
+<div class="schema-item"><strong>Compuesta</strong>Compara cada magnitud con la incógnita: directa → razón normal; inversa → razón invertida.</div>
+</div>
+</div>
+</section>
+<!-- SESIÓN 6 -->
+<section class="slide">
+<div class="k" style="color:var(--green)">SOLUCIONES</div><h2 style="color:var(--green)">Ejercicios 90, 94 y 98</h2>
+<div class="solution">
+<p><strong>90.</strong> Proporcionalidad directa: hacen falta <strong>320 g de salmón</strong>.</p>
+<p><strong>94.</strong> Proporcionalidad inversa: con 24 huéspedes habrá comida para <strong>9 días</strong>.</p>
+<p><strong>98.</strong> Al leer 12 páginas por hora durante 20 días, debe leer <strong>2,5 horas al día</strong>.</p>
+</div>
+</section>
+<section class="slide"><div class="session"><div class="session-num">6</div><div><div class="k">SESIÓN 6</div><h1>Porcentajes</h1><p class="lead">Porcentaje de una cantidad · aumentos · disminuciones · variaciones sucesivas.</p></div></div></section>
+<section class="slide">
+<div class="k">6 · PORCENTAJE DE UNA CANTIDAD</div><h2>Calcular un porcentaje</h2>
+<div class="formula-card">
+<div class="formula-line"><span class="fvar">p</span><span class="fop">%</span><span> de </span><span class="fvar">C</span><span class="fop"> = </span><span class="frac formula-frac"><span class="top">p</span><span class="bottom">100</span></span><span class="fop"> · </span><span class="fvar">C</span></div>
+</div>
+<div class="g2">
+<div class="card blue"><h3>Ejemplo</h3><div class="bigmath">12,5% de 432</div></div>
+<div class="card green"><h3>Cálculo</h3><div class="formula-line smallformula"><span class="frac formula-frac"><span class="top">12,5</span><span class="bottom">100</span></span><span class="fop"> · 432 = 54</span></div></div>
+</div>
+</section>
+<section class="slide">
+<div class="k">6 · AUMENTOS Y DISMINUCIONES</div><h2>Índice de variación</h2>
+<div class="g2">
+<div class="card blue"><h3>AUMENTO DEL p%</h3><div class="bigmath">C<sub>f</sub> = C<sub>i</sub> · (1 + <span class="frac"><span class="top">p</span><span class="bottom">100</span></span>)</div><p>+28% ⇒ × 1,28</p></div>
+<div class="card blue"><h3>DISMINUCIÓN DEL p%</h3><div class="bigmath">C<sub>f</sub> = C<sub>i</sub> · (1 − <span class="frac"><span class="top">p</span><span class="bottom">100</span></span>)</div><p>−12% ⇒ × 0,88</p></div>
+</div>
+</section>
+<section class="slide">
+<div class="k">6 · PORCENTAJES SUCESIVOS</div><h2>No se suman los porcentajes</h2>
+<p class="lead">Aumentamos un precio un 15% y después lo rebajamos un 15%.</p>
+
+
+
+<div class="stepbox" id="succStep"></div>
+</section>
+<section class="slide">
+<div class="k">6 · RECUPERAR EL VALOR INICIAL</div><h2>Trabajar hacia atrás</h2>
+<p class="lead">Tras aumentar un 28% y rebajar un 12%, el precio final es 527,85 €. ¿Precio inicial?</p>
+
+
+
+<div class="stepbox" id="backStep"></div>
+</section>
+<section class="slide">
+<div class="k">AHORA TÚ</div><h2>Ejercicios del solucionario</h2>
+<div class="exercise-list full">
+<p><strong>100.</strong> Expresa cada razón como porcentaje:</p>
+<p>a) <span class="frac"><span class="top">3</span><span class="bottom">20</span></span>    b) <span class="frac"><span class="top">8</span><span class="bottom">12</span></span>    c) <span class="frac"><span class="top">9</span><span class="bottom">14</span></span>    d) 1 de cada 6 turistas viaja solo.</p>
+<p>e) 2 de cada 7 pasteles llevan chocolate.    f) 7 de cada 40 pacientes no se recuperan con el primer tratamiento.</p>
+<p><strong>102.</strong> ¿Cuánto dinero hay que <b>aumentar</b> el precio de estos artículos para que tengan una subida del <b>24%</b>?</p>
+<p>a) Pan: 0,60 €/unidad.    b) Leche: 1,10 €/ℓ.    c) Huevos: 1,42 €/docena.    d) Manzanas: 2,30 €/kg.</p>
+<p><strong>103.</strong> Razona si es verdadero o falso:</p>
+<p>a) El 25% de 200 es lo mismo que el 50% de 100.    b) El 40% de 48 coincide con el 20% de 24.</p>
+<p>c) El 20% de 50 es lo mismo que el 50% de 20.    d) El 20% de 70 junto con el 30% de 70 es el 50% de 140.</p>
+</div>
+<div class="theory-schema">
+<h3>Esquema de teoría que vas a necesitar</h3>
+<div class="schema-grid">
+<div class="schema-item"><strong>Porcentaje</strong>p% de C = (<span class="frac"><span class="top">p</span><span class="bottom">100</span></span>)·C.</div>
+<div class="schema-item"><strong>Aumento</strong>Multiplica por 1+<span class="frac"><span class="top">p</span><span class="bottom">100</span></span>. Ej.: +24% ⇒ ×1,24.</div>
+<div class="schema-item"><strong>Disminución</strong>Multiplica por 1−<span class="frac"><span class="top">p</span><span class="bottom">100</span></span>. Ej.: −12% ⇒ ×0,88.</div>
+</div>
+</div>
+</section>
+<!-- SESIÓN 7 -->
+<section class="slide">
+<div class="k" style="color:var(--green)">SOLUCIONES</div><h2 style="color:var(--green)">Ejercicios 100, 102 y 103</h2>
+<div class="solution">
+<p><strong>100.</strong> a) 15% · b) 66,67% aprox. · c) 64,29% aprox. · d) 16,67% aprox. · e) 28,57% aprox. · f) 17,5%.</p>
+<p><strong>102.</strong> Aumento del 24%: a) pan +0,14 € · b) leche +0,26 € · c) huevos +0,34 € · d) manzanas +0,55 €.</p>
+<p><strong>103.</strong> a) Verdadera · b) Falsa · c) Verdadera · d) Falsa.</p>
+</div>
+</section>
+<section class="slide"><div class="session"><div class="session-num">7</div><div><div class="k">SESIÓN 7</div><h1>Problemas y repaso final</h1><p class="lead">Porcentajes en contexto · lectura crítica de datos · síntesis del tema.</p></div></div></section>
+<section class="slide">
+<div class="k">7 · PORCENTAJE INVERSO</div><h2>La brecha salarial y la base de comparación</h2>
+<p class="lead">Si el salario de las mujeres es un 28,6% inferior al de los hombres, ¿en qué porcentaje es superior el de los hombres?</p>
+
+
+
+<div class="stepbox" id="gapStep"></div>
+</section>
+<section class="slide">
+<div class="k">7 · LECTURA CRÍTICA</div><h2>¿Un titular puede engañar?</h2>
+<div class="card yellow large-text">
+<p>Una noticia afirma que las listas de espera aumentan un <strong>10%</strong>, pasando de <strong>661 162</strong> a <strong>742 518</strong> personas.</p>
+</div>
+<div class="g2">
+<div class="card blue">
+<h3>Calculamos el aumento</h3>
+<div class="bigmath">742 518 − 661 162 = 81 356</div>
+</div>
+<div class="card green">
+<h3>Calculamos el porcentaje</h3>
+<div class="formula-line smallformula"><span class="frac formula-frac"><span class="top">81 356</span><span class="bottom">661 162</span></span><span class="fop"> · 100 ≈ 12,3%</span></div>
+</div>
+</div>
+<div class="yellow large-text"><strong>Conclusión:</strong> el aumento real es aproximadamente <strong>12,3%</strong>. El porcentaje se calcula respecto al valor inicial.</div>
+</section>
+<section class="slide">
+<div class="k">7 · PORCENTAJE DEL TOTAL</div><h2>Accidentes al aire libre</h2>
+<p class="lead">El 80% de los accidentes ocurre al aire libre. Si esos accidentes se reducen un 40%, ¿cuánto disminuye el total?</p>
+
+
+
+<div class="stepbox" id="accStep"></div>
+</section>
+<section class="slide">
+<div class="k">AHORA TÚ</div><h2>Ejercicios del solucionario</h2>
+<div class="exercise-list full">
+<p><strong>104.</strong> En 2020, el salario de las mujeres fue un <b>28,6% inferior</b> al de los hombres. ¿En qué porcentaje fue superior el salario de los hombres al de las mujeres durante ese año?</p>
+<p><strong>105.</strong> Una noticia afirma: «Aumentan un 10% las listas de espera». Actualmente hay <b>742 518 pacientes</b> esperando una cirugía, que son <b>81 356 más</b> que un año antes. El tiempo medio actual de espera es de <b>113 días</b>, <b>8 días menos</b> que un año antes.</p>
+<p>a) Comprueba si es correcto afirmar que la lista de espera ha aumentado un 10%.    b) ¿En qué porcentaje ha disminuido el tiempo medio de espera?</p>
+<p><strong>106.</strong> El <b>80%</b> de los accidentes suceden al aire libre y el <b>20%</b> dentro de los edificios. Si el número de accidentes al aire libre se redujera en un <b>40%</b>, ¿en qué porcentaje disminuiría el número total de accidentes?</p>
+</div>
+<div class="theory-schema">
+<h3>Esquema de teoría que vas a necesitar</h3>
+<div class="schema-grid">
+<div class="schema-item"><strong>Porcentaje inverso</strong>La base de comparación cambia: si A es un 28,6% menor que B, no significa que B sea un 28,6% mayor que A.</div>
+<div class="schema-item"><strong>Variación porcentual</strong>(final−inicial)/inicial · 100.</div>
+<div class="schema-item"><strong>Porcentaje de un porcentaje</strong>Multiplica los porcentajes en forma decimal: 40% de 80% = 0,40·0,80 = 0,32.</div>
+</div>
+</div>
+</section>
+<section class="slide">
+<div class="k" style="color:var(--green)">SOLUCIONES</div><h2 style="color:var(--green)">Ejercicios 104, 105 y 106</h2>
+<div class="solution">
+<p><strong>104.</strong> El salario de las mujeres era el 71,4% del de los hombres. El salario de los hombres fue aproximadamente un <strong>40,05% superior</strong>.</p>
+<p><strong>105.</strong> El titular no es correcto: el aumento de pacientes fue aproximadamente del <strong>12,3%</strong>. El tiempo medio de espera bajó de 121 a 113 días, una disminución aproximada del <strong>7%</strong>.</p>
+<p><strong>106.</strong> El 40% del 80% es 32%; por tanto, el número total de accidentes disminuiría un <strong>32%</strong>.</p>
+</div>
+</section>
+<section class="slide">
+<div class="k">RESUMEN</div><h2>Lo esencial del tema</h2>
+<div class="g2">
+<div class="card blue">
+<p>ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ y los irracionales completan ℝ.</p>
+<p>Los irracionales tienen infinitas cifras decimales no periódicas.</p>
+<p>Aproximar implica controlar el error absoluto y relativo.</p>
+</div>
+<div class="card blue">
+<p>Los intervalos traducen desigualdades sobre la recta real.</p>
+<p>Directa: cociente constante. Inversa: producto constante.</p>
+<p>En porcentajes sucesivos se multiplican los índices de variación.</p>
+</div>
+</div>
+</section>
+
+<div class="controlsL">
+<button aria-label="Índice" class="indexIcon" onclick="toggleIndex()" title="Índice" data-tip="Índice">☰</button>
+<button aria-label="Pantalla completa" class="fullIcon" onclick="toggleFull()" title="Pantalla completa" data-tip="Pantalla completa">⛶</button>
+</div>
+<div class="controlsR">
+<button class="secondary navIcon" id="prev" onclick="prevSlide()" aria-label="Anterior" title="Anterior" data-tip="Anterior">◀</button>
+<button class="secondary navIcon stepIcon" id="prevStepBtn" onclick="prevStep()" aria-label="Paso anterior" title="Paso anterior" data-tip="Paso anterior">↶</button>
+<button class="accent navIcon stepIcon" id="stepBtn" onclick="nextStep()" aria-label="Paso siguiente" title="Paso siguiente" data-tip="Paso siguiente">↷</button>
+<button class="secondary navIcon" id="resetBtn" onclick="resetSteps()" aria-label="Reiniciar" title="Reiniciar" data-tip="Reiniciar">↺</button>
+<button class="navIcon" id="next" onclick="nextSlide()" aria-label="Siguiente" title="Siguiente" data-tip="Siguiente">▶</button>
+</div>
+
+<div id="counter"></div><div class="progress" id="progress"></div>
+
+<div class="index" id="index">
+<button class="close" onclick="toggleIndex()">Cerrar ✕</button>
+<h2>Índice · Tema 1 · Números reales y proporcionalidad</h2>
+<div class="indexGrid"><button onclick="go(0)"><b>Inicio</b><span>Portada</span></button><button onclick="go(1)"><b>Mapa del tema</b><span>Resumen general</span></button><button onclick="go(2)"><b>Sesión 1 · Números reales</b><span>Racionales e irracionales</span></button><button onclick="go(9)"><b>Sesión 2 · Recta real</b><span>Orden y representación</span></button><button onclick="go(16)"><b>Sesión 3 · Aproximaciones</b><span>Errores absoluto y relativo</span></button><button onclick="go(23)"><b>Sesión 4 · Intervalos</b><span>Unión, intersección y valor absoluto</span></button><button onclick="go(30)"><b>Sesión 5 · Proporcionalidad</b><span>Directa, inversa y compuesta</span></button><button onclick="go(37)"><b>Sesión 6 · Porcentajes</b><span>Aumentos y disminuciones</span></button><button onclick="go(44)"><b>Sesión 7 · Problemas y repaso</b><span>Aplicaciones finales</span></button>
+<div class="jumpSlide"><label for="jumpNumber"><b>Ir a diapositiva</b></label>
+<div class="jumpRow"><input id="jumpNumber" type="number" min="1" max="52" inputmode="numeric" placeholder="N.º">
+<button type="button" onclick="jumpToSlide()">Ir</button></div></div>
+</div></div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const stepData={'classStep':[
+  'Observamos el decimal: 21,46363636…',
+  'Después de la cifra 4 se repite el periodo 63.',
+  'Es un decimal periódico mixto.',
+  'Por tanto, pertenece a ℚ y también a ℝ.'
+],'rootStep':[
+  'Buscamos una descomposición: 50 = 7² + 1².',
+  'Construimos un triángulo rectángulo de catetos 7 y 1.',
+  'Por Pitágoras, la hipotenusa mide √(7²+1²) = √50.',
+  'Con el compás trasladamos esa longitud a la recta real.'
+],'errStep':[
+  'Queremos milésimas: 10,479|8.',
+  'La cifra siguiente es 8, así que redondeamos hacia arriba.',
+  '10,4798 ≈ 10,480.',
+  'Eₐ = |10,4798 − 10,480| = 0,0002.'
+],'absStep':[
+  '|x| < 5 significa: la distancia de x al 0 es menor que 5.',
+  'Por tanto, x debe estar entre −5 y 5.',
+  '−5 < x < 5.',
+  'Intervalo: (−5, 5).'
+],'succStep':[
+  'Aumento del 15% ⇒ multiplicar por 1,15.',
+  'Disminución del 15% ⇒ multiplicar por 0,85.',
+  'Índice total: 1,15 · 0,85 = 0,9775.',
+  'El precio final es el 97,75% del inicial: disminuye un 2,25%.'
+],'backStep':[
+  'Aumento del 28% ⇒ ×1,28.',
+  'Disminución del 12% ⇒ ×0,88.',
+  'C · 1,28 · 0,88 = 527,85.',
+  'C = 527,85 : (1,28 · 0,88) ≈ 468,62 €.'
+],'gapStep':[
+  'Si el salario de los hombres es 100, el de las mujeres es 71,4.',
+  'Buscamos cuánto representa 100 respecto a 71,4.',
+  '100 : 71,4 ≈ 1,4005.',
+  'El salario de los hombres es aproximadamente un 40,05% superior.'
+],'accStep':[
+  'Imaginemos 100 accidentes en total.',
+  '80 ocurren al aire libre y 20 dentro de edificios.',
+  'Reducimos un 40% de 80: 0,40 · 80 = 32.',
+  'El total baja de 100 a 68: disminuye un 32%.'
+]};
+let current=0,revealed=0;
+
+function box(){return slides[current].querySelector('.stepbox')}
+function seq(){const b=box(); return b&&stepData[b.id] ? stepData[b.id] : []}
+function renderSteps(){
+ const b=box(); if(!b)return;
+ const a=seq();
+ b.classList.toggle('dense',a.length>=5 && revealed>=3);
+ if(revealed===0){b.innerHTML='';return}
+ b.innerHTML=a.slice(0,revealed).map((x,j)=>`<div class="step-history-item" data-step="${j+1}">${x}</div>`).join('');
+}
+function buttons(){
+ const a=seq();
+ const stepBtn=document.getElementById('stepBtn');
+ const prevStepBtn=document.getElementById('prevStepBtn');
+ const resetBtn=document.getElementById('resetBtn');
+ const prev=document.getElementById('prev');
+ const next=document.getElementById('next');
+ if(stepBtn) stepBtn.disabled=!a.length||revealed>=a.length;
+ if(prevStepBtn) prevStepBtn.disabled=!a.length||revealed<=0;
+ if(resetBtn) resetBtn.disabled=!a.length||revealed===0;
+ if(prev) prev.disabled=current===0;
+ if(next) next.disabled=current===slides.length-1;
+}
+function update(){
+ slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+ revealed=0; renderSteps(); buttons();
+ const counter=document.getElementById('counter');
+ const progress=document.getElementById('progress');
+ if(counter) counter.textContent=`${current+1}/${slides.length}`;
+ if(progress) progress.style.width=((current+1)/slides.length*100)+'%';
+}
+function nextStep(){if(document.body.classList.contains('index-open'))return;let a=seq();if(revealed<a.length){revealed++;renderSteps();buttons()}}
+function prevStep(){if(document.body.classList.contains('index-open'))return;if(revealed>0){revealed--;renderSteps();buttons()}}
+function resetSteps(){if(document.body.classList.contains('index-open'))return;revealed=0;renderSteps();buttons()}
+function nextSlide(){if(document.body.classList.contains('index-open'))return;if(current<slides.length-1){current++;update()}}
+function prevSlide(){if(document.body.classList.contains('index-open'))return;if(current>0){current--;update()}}
+function go(i){current=Math.max(0,Math.min(slides.length-1,i));index.classList.remove('open');document.body.classList.remove('index-open');update()}
+function toggleIndex(){const opening=!index.classList.contains('open');index.classList.toggle('open');document.body.classList.toggle('index-open',opening)}
+function toggleFull(){if(document.body.classList.contains('index-open'))return;if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()}
+function jumpToSlide(){
+ const inp=document.getElementById('jumpNumber'),n=parseInt(inp.value,10);
+ if(Number.isInteger(n)&&n>=1&&n<=slides.length){go(n-1);inp.value=''}else{inp.focus();inp.select?.()}
+}
+document.addEventListener('keydown',e=>{
+ if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;
+ if(e.key==='ArrowRight'||e.key==='PageDown')nextSlide();
+ if(e.key==='ArrowLeft'||e.key==='PageUp')prevSlide();
+ if(e.key===' '){e.preventDefault();nextSlide()}
+ if(e.key==='Escape'){index.classList.remove('open');document.body.classList.remove('index-open')}
+});
+
+// Preserve the original proportionality quiz.
+const fb=document.getElementById('propFeedback');
+document.querySelectorAll('#propQuiz button').forEach(b=>b.onclick=()=>{
+ fb.textContent=b.dataset.msg;b.classList.remove('correct','wrong');
+ b.classList.add(b.dataset.ok==='1'?'correct':'wrong');
+});
+// Preserve exit-answer interaction despite hiding the old .actions container:
+const exitReveal=document.getElementById('exitReveal'),exitSol=document.getElementById('exitSol');
+if(exitReveal&&exitSol){
+ exitReveal.parentElement.style.display='flex';
+ exitReveal.parentElement.style.justifyContent='flex-end';
+ exitReveal.onclick=()=>exitSol.classList.toggle('show');
+}
+update();
+</script>
+
+
+
+</body></html>
